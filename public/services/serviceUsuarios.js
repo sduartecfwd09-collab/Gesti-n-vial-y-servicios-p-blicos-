@@ -9,7 +9,7 @@ async function getUsuarios() {
         console.error("Error al obtener los usuarios", error);
     }
 }
-export { getUsuarios };
+export { getUsuarios }; 
 
 /* post es para agregar datos mediante parametros a una url*/
 async function postUsuarios(usuarios) {
