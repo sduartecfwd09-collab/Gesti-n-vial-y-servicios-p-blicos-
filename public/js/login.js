@@ -8,7 +8,15 @@ const btnCrearCuenta = document.getElementById("btnCrearCuenta")
 
 btnIniciarSesion.addEventListener("click", async function () {
     try {
-        let usuario = await getUsuarios();
+        if (correoUsuario.value.trim() === "" || contrasenaUsuario.value.trim() === "" ) {
+            Swal.fire({
+            title: "Error",
+            text: "Todos los campos son obligatorios",
+            icon: "error",
+            confirmButtonText: "OK"
+        });
+        } else {
+            let usuario = await getUsuarios();
         let usuarioLogeado = usuario.filter(inicio => correoUsuario.value === inicio.correo && contrasenaUsuario.value === inicio.contrasena)
 
         if (usuarioLogeado.length == 1) {
@@ -30,7 +38,7 @@ btnIniciarSesion.addEventListener("click", async function () {
                 icon: "error"
             });
         }
-
+        }
     } catch (error) {
         console.error("Error al obtener los usuarios", error);
     }
