@@ -2,16 +2,17 @@ import { postUsuarios } from "../services/serviceUsuarios.js";
 import { getUsuarios } from "../services/serviceUsuarios.js";
 
 const nombre = document.getElementById("nombre");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
-const confirmar_password = document.getElementById("confirmar_password");
-const edad = document.getElementById("edad");
-const btnAgregar = document.getElementById("btnAgregar");
+const correo = document.getElementById("correo");
+const contrasena = document.getElementById("contrasena");
+const confirmar_contrasena = document.getElementById("confirmar_contrasena");
+const telefono = document.getElementById("telefono");
+const cedula = document.getElementById("cedula");
+const btnRegistrar = document.getElementById("btnRegistrar");
 
 
-btnAgregar.addEventListener("click", async function () {
+btnRegistrar.addEventListener("click", async function () {
 
-    if (nombre.value.trim() === "" || email.value.trim() === "" || password.value.trim() === "" || confirmar_password.value.trim() === "" || edad.value.trim() === "") {
+    if (nombre.value.trim() === "" || correo.value.trim() === "" || contrasena.value.trim() === "" || confirmar_contrasena.value.trim() === "" || telefono.value.trim() === "" || cedula.value.trim() === "") {
         Swal.fire({
             title: "Error",
             text: "Todos los campos son obligatorios",
@@ -19,7 +20,7 @@ btnAgregar.addEventListener("click", async function () {
             confirmButtonText: "OK"
         });
     } else {
-        if (!email.value.includes("@") || !email.value.includes(".com") || email.value.length <= 12) { /* no es lo más seguro, pero solicita algunos criterios para el correo  */
+        if (!correo.value.includes("@") || !correo.value.includes(".com") || correo.value.length <= 12) { 
             Swal.fire({
                 title: "Error",
                 text: "Ingrese un correo válido que contenga '@', '.com' y tenga una longitud mayor a 12 caracteres",
@@ -30,7 +31,7 @@ btnAgregar.addEventListener("click", async function () {
             let usuario = await getUsuarios();
             console.log(usuario);
             
-            let usuarioNuevo = usuario.find(inicio => email.value === inicio.email)
+            let usuarioNuevo = usuario.find(inicio => correo.value === inicio.correo)
             console.log(usuarioNuevo);
             
             if (usuarioNuevo) {
@@ -43,7 +44,7 @@ btnAgregar.addEventListener("click", async function () {
                 });
 
             } else {
-                if (password.value.length < 6) {
+                if (contrasena.value.length < 6) {
                     Swal.fire({
                         title: "Error",
                         text: "La contraseña debe tener al menos 6 caracteres",
@@ -51,12 +52,13 @@ btnAgregar.addEventListener("click", async function () {
                         confirmButtonText: "OK"
                     });
                 } else {
-                    if (password.value === confirmar_password.value) {
+                    if (contrasena.value === confirmar_contrasena.value) {
                         const usuario = {
                             nombre: nombre.value.trim(),
-                            email: email.value.trim(),
-                            password: password.value.trim(),
-                            edad: edad.value.trim()
+                            correo: correo.value.trim(),
+                            contrasena: contrasena.value.trim(),
+                            telefono: telefono.value.trim(),
+                            cedula: cedula.value.trim()
                         };
                         let usuarioGuardado = await postUsuarios(usuario);
                         console.log(usuarioGuardado);
