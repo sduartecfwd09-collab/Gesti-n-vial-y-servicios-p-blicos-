@@ -2,7 +2,7 @@
 
 async function getUsuarios() {
     try {
-        const respuesta = await fetch("http://localhost:3002/servicios");/* fetch es una funcion que permite hacer peticiones a una url */
+        const respuesta = await fetch("http://localhost:3000/servicios");/* fetch es una funcion que permite hacer peticiones a una url */
         const datosUsuarios = await respuesta.json();/* json es un formato de datos que se utiliza para intercambiar datos entre el servidor y el cliente */
         return datosUsuarios;
     } catch (error) {
@@ -14,7 +14,7 @@ export { getUsuarios };
 /* post es para agregar datos mediante parametros a una url*/
 async function postUsuarios(servicios) {
     try {
-        const respuesta = await fetch("http://localhost:3002/servicios", { /* Con post se debe abrir una llavem donde especifica el tipo de metodo y el header(siempre se mantiene igual) */
+        const respuesta = await fetch("http://localhost:3000/servicios", { /* Con post se debe abrir una llavem donde especifica el tipo de metodo y el header(siempre se mantiene igual) */
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -32,7 +32,7 @@ export { postUsuarios };
 /* put es para actualizar datos mediante parametros a una url*/
 async function updateUser(id, servicios) {
     try {
-        const respuesta = await fetch(`http://localhost:3002/servicios/${id}`, {
+        const respuesta = await fetch(`http://localhost:3000/servicios/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -50,7 +50,7 @@ export { updateUser };
 /* Delete */
 async function deleteUsers(id) {
     try {
-        const respuesta = await fetch(`http://localhost:3002/servicios/${id}`, { /* Con put se debe abrir una llavem donde especifica el tipo de metodo y el header(siempre se mantiene igual) */
+        const respuesta = await fetch(`http://localhost:3000/servicios/${id}`, { /* Con put se debe abrir una llavem donde especifica el tipo de metodo y el header(siempre se mantiene igual) */
             method: "DELETE",
 
         });
@@ -64,7 +64,7 @@ export { deleteUsers };
 /* Patch editar */
 async function updatePatchUser(id, servicios) {
     try {
-        const respuesta = await fetch(`http://localhost:3002/servicios/${id}`, {
+        const respuesta = await fetch(`http://localhost:3000/servicios/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
