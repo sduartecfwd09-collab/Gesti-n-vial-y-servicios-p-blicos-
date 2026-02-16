@@ -7,12 +7,13 @@ const contrasena = document.getElementById("contrasena");
 const confirmar_contrasena = document.getElementById("confirmar_contrasena");
 const telefono = document.getElementById("telefono");
 const cedula = document.getElementById("cedula");
+const rol = document.getElementById("rol");
 const btnRegistrar = document.getElementById("btnRegistrar");
 
 
 btnRegistrar.addEventListener("click", async function () {
 
-    if (nombre.value.trim() === "" || correo.value.trim() === "" || contrasena.value.trim() === "" || confirmar_contrasena.value.trim() === "" || telefono.value.trim() === "" || cedula.value.trim() === "") {
+    if (nombre.value.trim() === "" || correo.value.trim() === "" || contrasena.value.trim() === "" || confirmar_contrasena.value.trim() === "" || telefono.value.trim() === "" || cedula.value.trim() === "" || rol.value.trim() === "") {
         Swal.fire({
             title: "Error",
             text: "Todos los campos son obligatorios",
@@ -20,7 +21,7 @@ btnRegistrar.addEventListener("click", async function () {
             confirmButtonText: "OK"
         });
     } else {
-        if (!correo.value.includes("@") || !correo.value.includes(".com") || correo.value.length <= 12) { 
+        if (!correo.value.includes("@") || !correo.value.includes(".com") || correo.value.length <= 12) {
             Swal.fire({
                 title: "Error",
                 text: "Ingrese un correo válido que contenga '@', '.com' y tenga una longitud mayor a 12 caracteres",
@@ -30,10 +31,10 @@ btnRegistrar.addEventListener("click", async function () {
         } else {
             let usuario = await getUsuarios();
             console.log(usuario);
-            
+
             let usuarioNuevo = usuario.find(inicio => correo.value === inicio.correo)
             console.log(usuarioNuevo);
-            
+
             if (usuarioNuevo) {
 
                 Swal.fire({
@@ -58,18 +59,22 @@ btnRegistrar.addEventListener("click", async function () {
                             correo: correo.value.trim(),
                             contrasena: contrasena.value.trim(),
                             telefono: telefono.value.trim(),
-                            cedula: cedula.value.trim()
+                            cedula: cedula.value.trim(),
+                            rol: rol.value.trim()
                         };
-                        let usuarioGuardado = await postUsuarios(usuario);
-                        console.log(usuarioGuardado);
+                            console.log("Guardando usuario...");
+                            let usuarioGuardado = await postUsuarios(usuario);
+                            console.log("Usuario guardado con éxito:", usuarioGuardado);
 
-                        Swal.fire({
-                            title: "Registro exitoso",
-                            icon: "success",
-                            confirmButtonText: "Continuar"
-                        }).then(() => {
-                            window.location.href = "login.html";
-                        });;
+                        await Swal.fire({
+                                    title: "Registro exitoso",
+                                    text: "Usuario creado correctamente",
+                                    icon: "success",
+                                    confirmButtonText: "Continuar"
+                        });
+
+                                        console.log("Redirigiendo a login.html...");
+                                        window.location.href = "login.html";
                     } else {
                         Swal.fire({
                             title: "Error",

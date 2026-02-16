@@ -8,36 +8,43 @@ const btnCrearCuenta = document.getElementById("btnCrearCuenta")
 
 btnIniciarSesion.addEventListener("click", async function () {
     try {
-        if (correoUsuario.value.trim() === "" || contrasenaUsuario.value.trim() === "" ) {
-            Swal.fire({
-            title: "Error",
-            text: "Todos los campos son obligatorios",
-            icon: "error",
-            confirmButtonText: "OK"
-        });
-        } else {
-            let usuario = await getUsuarios();
-        let usuarioLogeado = usuario.filter(inicio => correoUsuario.value === inicio.correo && contrasenaUsuario.value === inicio.contrasena)
-
-        if (usuarioLogeado.length == 1) {
-            localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioLogeado[0]));
-
-            Swal.fire({
-                title: "inicio exitoso",
-                text: "credenciales correctas",
-                icon: "success",
-                confirmButtonText: "OK"
-            }).then(() => {
-                window.location.href = "index.html";
-            })
-
-        } else {
+        if (correoUsuario.value.trim() === "" || contrasenaUsuario.value.trim() === "") {
             Swal.fire({
                 title: "Error",
-                text: "Correo o contraseña incorrectos",
-                icon: "error"
+                text: "Todos los campos son obligatorios",
+                icon: "error",
+                confirmButtonText: "OK"
             });
-        }
+        } else {
+            let usuario = await getUsuarios();
+            let usuarioLogeado = usuario.filter(inicio => correoUsuario.value === inicio.correo && contrasenaUsuario.value === inicio.contrasena)
+
+            if (usuarioLogeado.length == 1) {
+                localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioLogeado[0]));
+
+                Swal.fire({
+                    title: "inicio exitoso",
+                    text: "credenciales correctas",
+                    icon: "success",
+                    confirmButtonText: "OK"
+                }).then(() => {
+                    const rol = usuarioLogeado[0].rol;
+                    if (rol === "administrador") {
+                        window.location.href = "administrador.html";
+                    } else if (rol === "usuario") {
+                        window.location.href = "usuario.html";
+                    } else {
+                        window.location.href = "index.html";
+                    }
+                })
+
+            } else {
+                Swal.fire({
+                    title: "Error",
+                    text: "Correo o contraseña incorrectos",
+                    icon: "error"
+                });
+            }
         }
     } catch (error) {
         console.error("Error al obtener los usuarios", error);

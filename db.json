@@ -1,21 +1,40 @@
 {
   "usuarios": [
     {
-      "id": "5a16",
-      "nombre": "errol",
-      "correo": "Saraifwd@gmail.com",
+      "id": "ce7b",
+      "nombre": "keylor",
+      "correo": "key26@gmail.com",
       "contrasena": "123456",
-      "telefono": "2356623",
-      "cedula": "1233456789",
-      "Rol": "usuario"
+      "telefono": "83172478",
+      "cedula": "603330444",
+      "rol": "usuario"
     },
     {
-      "id": "131c",
-      "nombre": "steven",
-      "correo": "steven@gamil.com",
+      "id": "f623",
+      "nombre": "errrrru v",
+      "correo": "errolf@gmail.com",
       "contrasena": "123456",
-      "telefono": "2356623",
-      "cedula": "1233456789"
+      "telefono": "88183631",
+      "cedula": "23456789",
+      "rol": "administrador"
+    },
+    {
+      "id": "19bf",
+      "nombre": "vanesa",
+      "correo": "cajr1986@gmail.com",
+      "contrasena": "123456",
+      "telefono": "83172478",
+      "cedula": "23456789",
+      "rol": "usuario"
+    },
+    {
+      "id": "6df4",
+      "nombre": "vanesa",
+      "correo": "cjimenezrfwd@gmail.com",
+      "contrasena": "123456",
+      "telefono": "88183631",
+      "cedula": "23456789",
+      "rol": "usuario"
     }
   ],
   "reportes": [],
