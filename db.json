@@ -1,5 +1,14 @@
 {
-  "usuarios": [],
+  "usuarios": [
+    {
+      "id": "0cf8",
+      "nombre": "errol",
+      "correo": "erroldariofallas1997@gmail.com",
+      "contrasena": "123456",
+      "telefono": "2356623",
+      "cedula": "1233456789"
+    }
+  ],
   "reportes": [],
   "proyectos": [],
   "servicios": []

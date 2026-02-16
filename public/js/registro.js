@@ -68,7 +68,7 @@ btnRegistrar.addEventListener("click", async function () {
                             icon: "success",
                             confirmButtonText: "Continuar"
                         }).then(() => {
-                            window.location.href = "perfil.html";
+                            window.location.href = "login.html";
                         });;
                     } else {
                         Swal.fire({

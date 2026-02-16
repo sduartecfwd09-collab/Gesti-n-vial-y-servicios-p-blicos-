@@ -2,7 +2,7 @@ import { getUsuarios } from "../services/serviceUsuarios.js";
 const correoUsuario = document.getElementById("correoUsuario");
 const contrasenaUsuario = document.getElementById("contrasenaUsuario");
 const btnIniciarSesion = document.getElementById("btnIniciarSesion")
-
+const btnCrearCuenta = document.getElementById("btnCrearCuenta")
 
 
 
@@ -35,3 +35,7 @@ btnIniciarSesion.addEventListener("click", async function () {
         console.error("Error al obtener los usuarios", error);
     }
 });
+
+btnCrearCuenta.addEventListener("click", function () {
+    window.location.href = "Registro.html"
+})
