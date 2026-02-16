@@ -1,9 +1,18 @@
 {
   "usuarios": [
     {
-      "id": "0bea",
+      "id": "5a16",
       "nombre": "errol",
-      "correo": "erroldariofallas1997@gmail.com",
+      "correo": "Saraifwd@gmail.com",
+      "contrasena": "123456",
+      "telefono": "2356623",
+      "cedula": "1233456789",
+      "Rol": "usuario"
+    },
+    {
+      "id": "131c",
+      "nombre": "steven",
+      "correo": "steven@gamil.com",
       "contrasena": "123456",
       "telefono": "2356623",
       "cedula": "1233456789"
