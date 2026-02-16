@@ -20,7 +20,7 @@ btnIniciarSesion.addEventListener("click", async function () {
                 icon: "success",
                 confirmButtonText: "OK"
             }).then(() => {
-                window.location.href = "perfil.html";
+                window.location.href = "index.html";
             })
 
         } else {
