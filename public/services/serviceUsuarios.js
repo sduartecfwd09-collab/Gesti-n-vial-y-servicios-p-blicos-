@@ -2,7 +2,7 @@
 
 async function getUsuarios() {
     try {
-        const respuesta = await fetch("http://localhost:3002/servicios");/* fetch es una funcion que permite hacer peticiones a una url */
+        const respuesta = await fetch("http://localhost:3002/usuarios");/* fetch es una funcion que permite hacer peticiones a una url */
         const datosUsuarios = await respuesta.json();/* json es un formato de datos que se utiliza para intercambiar datos entre el servidor y el cliente */
         return datosUsuarios;
     } catch (error) {
@@ -12,14 +12,14 @@ async function getUsuarios() {
 export { getUsuarios };
 
 /* post es para agregar datos mediante parametros a una url*/
-async function postUsuarios(servicios) {
+async function postUsuarios(usuarios) {
     try {
-        const respuesta = await fetch("http://localhost:3002/servicios", { /* Con post se debe abrir una llavem donde especifica el tipo de metodo y el header(siempre se mantiene igual) */
+        const respuesta = await fetch("http://localhost:3002/usuarios", { /* Con post se debe abrir una llavem donde especifica el tipo de metodo y el header(siempre se mantiene igual) */
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(servicios) /* stringify es para convertir el objeto en string */
+            body: JSON.stringify(usuarios) /* stringify es para convertir el objeto en string */
         });
         const datosUsuarios = await respuesta.json();
         return datosUsuarios;
@@ -30,14 +30,14 @@ async function postUsuarios(servicios) {
 export { postUsuarios };
 
 /* put es para actualizar datos mediante parametros a una url*/
-async function updateUser(id, servicios) {
+async function updateUser(id, usuarios) {
     try {
-        const respuesta = await fetch(`http://localhost:3002/servicios/${id}`, {
+        const respuesta = await fetch(`http://localhost:3002/usuarios/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(servicios)
+            body: JSON.stringify(usuarios)
         });
 
         return await respuesta.json();
@@ -50,7 +50,7 @@ export { updateUser };
 /* Delete */
 async function deleteUsers(id) {
     try {
-        const respuesta = await fetch(`http://localhost:3002/servicios/${id}`, { /* Con put se debe abrir una llavem donde especifica el tipo de metodo y el header(siempre se mantiene igual) */
+        const respuesta = await fetch(`http://localhost:3002/usuarios/${id}`, { /* Con put se debe abrir una llavem donde especifica el tipo de metodo y el header(siempre se mantiene igual) */
             method: "DELETE",
 
         });
@@ -62,14 +62,14 @@ async function deleteUsers(id) {
 export { deleteUsers };
 
 /* Patch editar */
-async function updatePatchUser(id, servicios) {
+async function updatePatchUser(id, usuarios) {
     try {
-        const respuesta = await fetch(`http://localhost:3002/servicios/${id}`, {
+        const respuesta = await fetch(`http://localhost:3002/usuarios/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(servicios)
+            body: JSON.stringify(usuarios)
         });
 
         return await respuesta.json();
