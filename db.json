@@ -35,9 +35,35 @@
       "telefono": "88183631",
       "cedula": "23456789",
       "rol": "usuario"
+    },
+    {
+      "id": "2b12",
+      "nombre": "Carlos",
+      "correo": "c_andjr@gmail.com",
+      "contrasena": "123456",
+      "telefono": "22345678",
+      "cedula": "67890324",
+      "rol": "usuario"
     }
   ],
-  "reportes": [],
+  "reportes": [
+    {
+      "id": "75c8",
+      "tipoReporte": "alcantarillado",
+      "descripcionProblema": "existe un hueco en el alcantarillado en frente de la casa de mi enamorada y hace que huela mal.",
+      "ubicacionProblema": "esparza",
+      "usuario": "19bf",
+      "Estado": "Pendiente"
+    },
+    {
+      "id": "9fed",
+      "tipoReporte": "recolecionderesiduos",
+      "descripcionProblema": "no pasó el camión el día de hoy",
+      "ubicacionProblema": "maraño",
+      "usuario": "19bf",
+      "Estado": "Pendiente"
+    }
+  ],
   "proyectos": [],
   "servicios": []
 }
