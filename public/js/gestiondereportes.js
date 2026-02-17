@@ -1,5 +1,7 @@
 import { getReportes } from "../services/serviceReportes.js"
 import { updatePatchReportes } from "../services/serviceReportes.js"
+import { deleteReportes } from "../services/serviceReportes.js"
+
 
 let btnCerrarSeccion = document.querySelector(".btnCerrarSeccion")/* borrar, se cambio a append, child */
 
@@ -34,18 +36,19 @@ async function mostrarReportes() {
         tdTipo.textContent = reporte.tipoReporte;
         tdDescripcion.textContent = reporte.descripcionProblema;
         tdUbicacion.textContent = reporte.ubicacionProblema;
-         nuevaUbicacion.textContent = reporte.direccion;
-         tdUsuario.textContent = reporte.usuario;
+        nuevaUbicacion.textContent = reporte.direccion;
+        tdUsuario.textContent = reporte.usuario;
         tdEstado.textContent = reporte.Estado;
 
         const btnPendiente = document.createElement("button"); /* desde aqui se diseñan todas las constantes,formato y eventos para cambiar el estado */
         const btnProceso = document.createElement("button");
         const btnResuelto = document.createElement("button");
+        const btnEliminarReporteInvalido = document.createElement("button");
 
         btnPendiente.textContent = "Pendiente";/* los valores de cada boton */
         btnProceso.textContent = "En Proceso";
         btnResuelto.textContent = "Resuelto";
-
+        btnEliminarReporteInvalido = "Reporte inválido";
 
         btnPendiente.addEventListener("click", async function () {
             await updatePatchReportes(reporte.id, { Estado: "Pendiente" });
@@ -61,7 +64,10 @@ async function mostrarReportes() {
             await updatePatchReportes(reporte.id, { Estado: "Resuelto" });
             mostrarReportes(); /* muestreme el cambio de inmediato despues de actualizar*/
         });
-
+        btnEliminarReporteInvalido.addEventListener("click", async function () {
+            await deleteReportes(reporte.id)
+            mostrarReportes(); /* muestreme el cambio de inmediato despues de actualizar*/
+        });
 
         tdAcciones.appendChild(btnPendiente);
         tdAcciones.appendChild(btnProceso);
@@ -90,10 +96,12 @@ if (usuarioActivo) {
         link.textContent = "Panel Usuario";
         link.href = "../pages/usuario.html";
     }
-     else{ if (usuarioActivo.rol === "administrador") {
-        link.textContent = "Administrador";
-        link.href = "../pages/administrador.html";
-    }}
+    else {
+        if (usuarioActivo.rol === "administrador") {
+            link.textContent = "Administrador";
+            link.href = "../pages/administrador.html";
+        }
+    }
 
 
     navRol.appendChild(link);

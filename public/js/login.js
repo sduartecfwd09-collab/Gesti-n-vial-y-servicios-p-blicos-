@@ -17,35 +17,47 @@ btnIniciarSesion.addEventListener("click", async function () {
             });
         } else {
             let usuario = await getUsuarios();
-            let usuarioLogeado = usuario.filter(inicio => correoUsuario.value === inicio.correo && contrasenaUsuario.value === inicio.contrasena)
-
-            if (usuarioLogeado.length == 1) {
-                localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioLogeado[0]));
-
-                Swal.fire({
-                    title: "inicio exitoso",
-                    text: "credenciales correctas",
-                    icon: "success",
-                    confirmButtonText: "OK"
-                }).then(() => {
-                    const rol = usuarioLogeado[0].rol;
-                    if (rol === "administrador") {
-                        window.location.href = "administrador.html";
-                    } else {
-                        if (rol === "usuario") {
-                            window.location.href = "index.html";
-                        } else {
-                            window.location.href = "index.html";
-                        }
-                    }
-                })
-
-            } else {
+            let usuarioNuevo = usuario.find(inicio => correoUsuario.value === inicio.correo)
+            if (!usuarioNuevo) {
                 Swal.fire({
                     title: "Error",
-                    text: "Correo o contraseña incorrectos",
-                    icon: "error"
+                    text: "Este correo no está registrado",
+                    icon: "error",
+                    confirmButtonText: "OK"
                 });
+
+            } else {
+
+                let usuario = await getUsuarios();
+                let usuarioLogeado = usuario.find(inicio => correoUsuario.value === inicio.correo && contrasenaUsuario.value === inicio.contrasena)
+
+                if (usuarioLogeado) {
+                     localStorage.setItem("usuarioLogueado", JSON.stringify(usuarioLogeado));
+                    Swal.fire({
+                        title: "inicio exitoso",
+                        text: "credenciales correctas",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    }).then(() => {
+                        const rol = usuarioLogeado.rol;
+                        if (rol === "Administrador") {
+                            window.location.href = "administrador.html";
+                        } else {
+                            if (rol === "usuario") {
+                                window.location.href = "index.html";
+                            } else {
+                                window.location.href = "index.html";
+                            }
+                        }
+                    })
+
+                } else {
+                    Swal.fire({
+                        title: "Error",
+                        text: "Correo o contraseña incorrectos",
+                        icon: "error"
+                    });
+                }
             }
         }
     } catch (error) {

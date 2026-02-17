@@ -17,6 +17,15 @@
       "telefono": "45679087",
       "cedula": "643217890",
       "rol": "usuario"
+    },
+    {
+      "id": "9079",
+      "nombre": "Errol",
+      "correo": "erroldariofallas1997@gmail.com",
+      "contrasena": "123456",
+      "telefono": "12345678",
+      "cedula": "123456789",
+      "rol": "usuario"
     }
   ],
   "reportes": [],
