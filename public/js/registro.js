@@ -1,21 +1,26 @@
 import { postUsuarios } from "../services/serviceUsuarios.js";
 import { getUsuarios } from "../services/serviceUsuarios.js";
 
+
 const nombre = document.getElementById("nombre");
 const correo = document.getElementById("correo");
 const contrasena = document.getElementById("contrasena");
 const confirmar_contrasena = document.getElementById("confirmar_contrasena");
 const telefono = document.getElementById("telefono");
 const cedula = document.getElementById("cedula");
-const rol = document.getElementById("rol");
 const btnRegistrar = document.getElementById("btnRegistrar");
+
+
+
+
 
 
 
 
 btnRegistrar.addEventListener("click", async function () {
 
-    if (nombre.value.trim() === "" || correo.value.trim() === "" || contrasena.value.trim() === "" || confirmar_contrasena.value.trim() === "" || telefono.value.trim() === "" || cedula.value.trim() === "" || rol.value.trim() === "") {
+
+    if (nombre.value.trim() === "" || correo.value.trim() === "" || contrasena.value.trim() === "" || confirmar_contrasena.value.trim() === "" || telefono.value.trim() === "" || cedula.value.trim() === "") {
         Swal.fire({
             title: "Error",
             text: "Todos los campos son obligatorios",
@@ -34,10 +39,13 @@ btnRegistrar.addEventListener("click", async function () {
             let usuario = await getUsuarios();
             console.log(usuario);
 
+
             let usuarioNuevo = usuario.find(inicio => correo.value === inicio.correo)
             console.log(usuarioNuevo);
 
+
             if (usuarioNuevo) {
+
 
                 Swal.fire({
                     title: "Error",
@@ -45,6 +53,7 @@ btnRegistrar.addEventListener("click", async function () {
                     icon: "error",
                     confirmButtonText: "OK"
                 });
+
 
             } else {
                 if (contrasena.value.length < 6) {
@@ -55,6 +64,15 @@ btnRegistrar.addEventListener("click", async function () {
                         confirmButtonText: "OK"
                     });
                 } else {
+                    let usuario = await getUsuarios();
+                    let rolAsignado = usuario.length === 0
+                    if (rolAsignado) {
+                        rolAsignado = "Administrador"
+                    } else {
+                        rolAsignado = "usuario"
+                    }
+
+
                     if (contrasena.value === confirmar_contrasena.value) {
                         const usuario = {
                             nombre: nombre.value.trim(),
@@ -62,14 +80,22 @@ btnRegistrar.addEventListener("click", async function () {
                             contrasena: contrasena.value.trim(),
                             telefono: telefono.value.trim(),
                             cedula: cedula.value.trim(),
-                            rol: rol.value.trim()
+                            rol: rolAsignado
                         }
                         await postUsuarios(usuario);
+                        //let admin = await getUsuarios();
+
+
+
+
+
+
                         Swal.fire({
                             title: "Registro exitoso",
                             icon: "success",
                             confirmButtonText: "Continuar"
                         }).then(() => {
+
 
                             window.location.href = "login.html";
                         });;
@@ -82,12 +108,20 @@ btnRegistrar.addEventListener("click", async function () {
                         });
                     }
 
+
                 }
             }
+
+
+
 
 
 
         }
     }
 
+
 });
+
+
+

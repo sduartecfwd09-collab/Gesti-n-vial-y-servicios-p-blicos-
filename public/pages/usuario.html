@@ -48,7 +48,17 @@
     <label for="descripcionProblema">Descripción del problema:</label> <br><br>
     <textarea name="descripcionProblema" id="descripcionProblema"
       placeholder="Describa con sus palabras el problema"></textarea><br><br>
-    <input type="text" name="ubicacionProblema" id="ubicacionProblema" placeholder="Donde está Ubicación del problema">
+      <select name="ubicacionProblema" id="ubicacionProblema"> 
+        <option value="Bello Horizontal">Bello Horizontal</option>
+        <option value="Carrizal">Carrizal</option>
+        <option value="Centro">Centro</option>
+        <option value="El Poró">El Poró</option>
+        <option value="La Rosa Linda">La Rosa Linda</option>
+        <option value="Los Salitrillos">Los Salitrillos</option>
+        <option value="El Curio">El Curio</option>
+      </select>
+      <textarea name="direccion" id="direccion"
+      placeholder="Dirección exacta"></textarea><br><br>
     <button id="btnReportar">Reportar</button>
 
     <h3>registro de reportes</h3>
@@ -58,7 +68,10 @@
           <th>Tipo de problema:</th>
           <th>Descripción del problema:</th>
           <th>ubicacion del problema:</th>
+          <th>Dirección exacta</th>
           <th>Estado:</th>
+
+
         </tr>
       </thead>
       <tbody id="contendor"></tbody>

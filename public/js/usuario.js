@@ -4,6 +4,7 @@ import { getReportes } from "../services/serviceReportes.js"
 let tipoReporte = document.getElementById("tipoReporte");
 let descripcionProblema = document.getElementById("descripcionProblema");
 let ubicacionProblema = document.getElementById("ubicacionProblema");
+let direccion = document.getElementById("direccion");
 let btnReportar = document.getElementById("btnReportar");
 
 let contendor = document.getElementById("contendor")
@@ -16,7 +17,7 @@ const navRol = document.getElementById("navRol");
 mostrarReportes();
 
 btnReportar.addEventListener("click", async () => {
-    if (tipoReporte.value.trim() == "" || descripcionProblema.value.trim() == "" || ubicacionProblema.value.trim() == "") {
+    if (tipoReporte.value.trim() == "" || descripcionProblema.value.trim() == "" || ubicacionProblema.value.trim() == "" || direccion.value.trim() == "") {
         Swal.fire({
             title: "Error",
             text: "Todos los campos son obligatorios",
@@ -28,6 +29,7 @@ btnReportar.addEventListener("click", async () => {
             tipoReporte: tipoReporte.value.trim(),
             descripcionProblema: descripcionProblema.value.trim(),
             ubicacionProblema: ubicacionProblema.value.trim(),
+            direccion: direccion.value.trim(),
             usuario: usuarioActivo.id, /* esto permite guardar el id del usuario activo que envió el formulario */
             Estado: "Pendiente"
         }
@@ -46,6 +48,7 @@ btnReportar.addEventListener("click", async () => {
         tipoReporte.value = ""; /* limpiar inputa */
         descripcionProblema.value = "";
         ubicacionProblema.value = "";
+        direccion.value = "";
     }
 })
 
@@ -65,18 +68,22 @@ async function mostrarReportes() {
             const datosTipoReporte = document.createElement("td");
             const datosDescripcionProblema = document.createElement("td");
             const datosUbicacionProblema = document.createElement("td");
+              const direccionExacta = document.createElement("td");
             const datosEstado = document.createElement("td");
 
             datosTipoReporte.textContent = reportesEnviados.tipoReporte;
             datosDescripcionProblema.textContent = reportesEnviados.descripcionProblema;
             datosUbicacionProblema.textContent = reportesEnviados.ubicacionProblema; /* el contenido de esos td será lo encontrado en dbjson en la lista productos */
+            direccionExacta.textContent = reportesEnviados.direccion;
             datosEstado.textContent = reportesEnviados.Estado;
 
             item.appendChild(datosTipoReporte);
             item.appendChild(datosDescripcionProblema);
             item.appendChild(datosUbicacionProblema);/* item tendra hijos y los hijos serán td */
+            item.appendChild(direccionExacta);
             item.appendChild(datosEstado);
             contendor.appendChild(item) /* dentro del contenedor va estar item e item es un tr */
+
         }
     }
 }

@@ -1,69 +1,25 @@
 {
   "usuarios": [
     {
-      "id": "ce7b",
-      "nombre": "keylor",
-      "correo": "key26@gmail.com",
+      "id": "607d",
+      "nombre": "vanne",
+      "correo": "vanne1986@gmail.com",
       "contrasena": "123456",
-      "telefono": "83172478",
-      "cedula": "603330444",
-      "rol": "usuario"
+      "telefono": "23457890",
+      "cedula": "623416789",
+      "rol": "Administrador"
     },
     {
-      "id": "f623",
-      "nombre": "errrrru v",
-      "correo": "errolf@gmail.com",
+      "id": "dd6e",
+      "nombre": "Saraí rojas",
+      "correo": "sarairojas@gmail.com",
       "contrasena": "123456",
-      "telefono": "88183631",
-      "cedula": "23456789",
-      "rol": "administrador"
-    },
-    {
-      "id": "19bf",
-      "nombre": "vanesa",
-      "correo": "cajr1986@gmail.com",
-      "contrasena": "123456",
-      "telefono": "83172478",
-      "cedula": "23456789",
-      "rol": "usuario"
-    },
-    {
-      "id": "6df4",
-      "nombre": "vanesa",
-      "correo": "cjimenezrfwd@gmail.com",
-      "contrasena": "123456",
-      "telefono": "88183631",
-      "cedula": "23456789",
-      "rol": "usuario"
-    },
-    {
-      "id": "2b12",
-      "nombre": "Carlos",
-      "correo": "c_andjr@gmail.com",
-      "contrasena": "123456",
-      "telefono": "22345678",
-      "cedula": "67890324",
+      "telefono": "45679087",
+      "cedula": "643217890",
       "rol": "usuario"
     }
   ],
-  "reportes": [
-    {
-      "id": "75c8",
-      "tipoReporte": "alcantarillado",
-      "descripcionProblema": "existe un hueco en el alcantarillado en frente de la casa de mi enamorada y hace que huela mal.",
-      "ubicacionProblema": "esparza",
-      "usuario": "19bf",
-      "Estado": "Pendiente"
-    },
-    {
-      "id": "9fed",
-      "tipoReporte": "recolecionderesiduos",
-      "descripcionProblema": "no pasó el camión el día de hoy",
-      "ubicacionProblema": "maraño",
-      "usuario": "19bf",
-      "Estado": "Pendiente"
-    }
-  ],
+  "reportes": [],
   "proyectos": [],
   "servicios": []
 }

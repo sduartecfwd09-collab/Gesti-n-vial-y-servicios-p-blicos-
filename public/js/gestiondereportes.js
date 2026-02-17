@@ -25,6 +25,7 @@ async function mostrarReportes() {
         const tdTipo = document.createElement("td");
         const tdDescripcion = document.createElement("td");
         const tdUbicacion = document.createElement("td");
+        const nuevaUbicacion = document.createElement("td");
         const tdUsuario = document.createElement("td");
         const tdEstado = document.createElement("td");
         const tdAcciones = document.createElement("td");
@@ -33,7 +34,8 @@ async function mostrarReportes() {
         tdTipo.textContent = reporte.tipoReporte;
         tdDescripcion.textContent = reporte.descripcionProblema;
         tdUbicacion.textContent = reporte.ubicacionProblema;
-        tdUsuario.textContent = reporte.usuario;
+         nuevaUbicacion.textContent = reporte.direccion;
+         tdUsuario.textContent = reporte.usuario;
         tdEstado.textContent = reporte.Estado;
 
         const btnPendiente = document.createElement("button"); /* desde aqui se diseñan todas las constantes,formato y eventos para cambiar el estado */
@@ -69,6 +71,7 @@ async function mostrarReportes() {
         fila.appendChild(tdTipo);
         fila.appendChild(tdDescripcion);
         fila.appendChild(tdUbicacion);
+        fila.appendChild(nuevaUbicacion);
         fila.appendChild(tdUsuario);
         fila.appendChild(tdEstado);
         fila.appendChild(tdAcciones); /* debe desplegar a sus hijos que son unos botones */
