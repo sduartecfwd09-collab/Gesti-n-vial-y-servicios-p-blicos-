@@ -1,0 +1,331 @@
+/* Global variables for the color palette */
+:root {
+    --primary-blue: #003399;
+    /* Azul Institucional */
+    --primary-green: #4CAF50;
+    /* Verde Montaña */
+    --hover-color: #00AEEF;
+    /* Azul Claro (Acento) */
+    --background-light: #F8F9FA;
+    /* Gris Claro */
+    --text-color: #1F2937;
+    --white: #ffffff;
+    --accent-brown: #8B4513;
+    /* Café del escudo */
+    --gradient: linear-gradient(135deg, #648bd8 0%, #1b576d 100%);
+    /* Blue Gradient */
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    background: var(--gradient);
+    box-shadow: var(--shadow);
+    padding: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.navbar-brand img {
+    height: 120px;
+    /* Adjusted height */
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.8);
+}
+
+.nav-link {
+    color: var(--white) !important;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 10px 20px !important;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Main Content Styling */
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+h1 {
+    color: var(--primary-blue);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--gradient);
+    border-radius: 2px;
+}
+
+h3 {
+    color: var(--primary-green);
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 5px solid var(--primary-blue);
+    padding-left: 15px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    color: #555;
+}
+
+ol {
+    background-color: var(--white);
+    padding: 30px 50px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    list-style-type: none;
+    /* Remove default numbering */
+    counter-reset: my-counter;
+}
+
+ol li {
+    position: relative;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    padding-left: 20px;
+}
+
+ol li::before {
+    counter-increment: my-counter;
+    content: counter(my-counter) ". ";
+    color: var(--primary-green);
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* Carousel / Hero Section */
+.carousel {
+    margin-top: 20px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.carousel-item {
+    height: 60vh;
+    min-height: 400px;
+    background-color: #000;
+}
+
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    /* Slight darken for text contrast */
+}
+
+.carousel-caption {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 20px;
+    bottom: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.carousel-caption h5 {
+    font-weight: 800;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    color: var(--white);
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* Procedure Grid / Timeline */
+h2 {
+    color: var(--primary-green);
+    font-weight: 700;
+    margin-top: 40px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Custom styling for the procedure list */
+main>div>ol {
+    padding: 0;
+    list-style: none;
+    counter-reset: procedure-counter;
+    display: grid;
+    gap: 30px;
+}
+
+main>div>ol>li {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    position: relative;
+    border-left: 6px solid var(--primary-green);
+    transition: transform 0.3s ease;
+}
+
+main>div>ol>li:hover {
+    transform: translateY(-5px);
+    border-left-color: var(--secondary-green);
+}
+
+main>div>ol>li::before {
+    counter-increment: procedure-counter;
+    content: counter(procedure-counter);
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-green);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+main>div>ol>li h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    text-align: left;
+    color: var(--dark-green);
+    border-bottom: 2px solid var(--background-light);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+main>div>ol>li ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+main>div>ol>li ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+main>div>ol>li ul li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: var(--primary-green);
+    font-weight: bold;
+}
+
+/* Footer Styling */
+footer {
+    background: var(--primary-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 0;
+    font-size: 1rem;
+    margin-top: 60px;
+}
+
+.social-icons {
+    margin-top: 15px;
+}
+
+.social-icons a {
+    color: var(--white);
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--secondary-green);
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .carousel-item {
+        height: 50vh;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .navbar-brand {
+        margin-bottom: 10px;
+    }
+
+    .navbar-brand img {
+        height: 80px;
+        /* Smaller on mobile */
+    }
+}
