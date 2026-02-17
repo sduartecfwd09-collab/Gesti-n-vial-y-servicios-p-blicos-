@@ -31,10 +31,12 @@ btnIniciarSesion.addEventListener("click", async function () {
                     const rol = usuarioLogeado[0].rol;
                     if (rol === "administrador") {
                         window.location.href = "administrador.html";
-                    } else if (rol === "usuario") {
-                        window.location.href = "usuario.html";
                     } else {
-                        window.location.href = "index.html";
+                        if (rol === "usuario") {
+                            window.location.href = "index.html";
+                        } else {
+                            window.location.href = "index.html";
+                        }
                     }
                 })
 
