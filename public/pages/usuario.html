@@ -15,64 +15,14 @@
 <body>
   <header>
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="../pages/index.html">Home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../pages/usuario.html">Panel de usuario</a>
-            </li>
-          </ul>
-        </div>
+    <nav>
+
+      <a class="navbar-brand" href="../pages/index.html">Home</a>
+      <div>
+        <span id="navRol"></span>
+        <span id="navCerrar"></span>
       </div>
     </nav>
-    <Nav>
-    <h1>Panel usuario</h1> <br><br>
-    <label for="tipoReporte">Seleccione el tipo de reporte:</label><br>
-    <select id="tipoReporte">
-      <option value="">Seleccione el tipo de problema</option>
-      <option value="huecos-bache">huecos</option>
-      <option value="senalizacion">Señalización</option>
-      <option value="alcantarillado">Alcantarillado</option>
-      <option value="recolecionderesiduos">Recolección de Residuos</option>
-      <option value="alumbrado">Alumbrado público</option>
-      <option value="reciclaje">recolección de reciclaje</option>.
-      <option value="ornatoyaseo">mantenimiento y aseo</option>.
-    </select>
-    </Nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -82,20 +32,17 @@
 
   </main>
   <footer>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <h1>Panel usuario</h1> <br><br>
+    <label for="tipoReporte">Seleccione el tipo de reporte:</label><br>
+    <select id="tipoReporte">
+      <option value="huecos-bache">Huecos en carretera</option>
+      <option value="senalizacion">Señalización</option>
+      <option value="alcantarillado">Alcantarillado</option>
+      <option value="recolecionderesiduos">Recolección de Residuos</option>
+      <option value="alumbrado">Alumbrado público</option>
+      <option value="reciclaje">Recolección de reciclaje</option>.
+      <option value="ornatoyaseo">Mantenimiento y aseo</option>.
+    </select><br><br>
 
     <label for="descripcionProblema">Descripción del problema:</label> <br><br>
     <textarea name="descripcionProblema" id="descripcionProblema"
@@ -103,17 +50,18 @@
     <input type="text" name="ubicacionProblema" id="ubicacionProblema" placeholder="Donde está Ubicación del problema">
     <button id="btnReportar">Reportar</button>
 
-
-
-
-
-
-
-
-
-
-
-
+    <h3>registro de reportes</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo de problema:</th>
+          <th>Descripción del problema:</th>
+          <th>ubicacion del problema:</th>
+          <th>Estado:</th>
+        </tr>
+      </thead>
+      <tbody id="contendor"></tbody>
+    </table>
 
     <script type="module" src="../js/usuario.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

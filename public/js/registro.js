@@ -11,6 +11,8 @@ const rol = document.getElementById("rol");
 const btnRegistrar = document.getElementById("btnRegistrar");
 
 
+
+
 btnRegistrar.addEventListener("click", async function () {
 
     if (nombre.value.trim() === "" || correo.value.trim() === "" || contrasena.value.trim() === "" || confirmar_contrasena.value.trim() === "" || telefono.value.trim() === "" || cedula.value.trim() === "" || rol.value.trim() === "") {
@@ -61,20 +63,16 @@ btnRegistrar.addEventListener("click", async function () {
                             telefono: telefono.value.trim(),
                             cedula: cedula.value.trim(),
                             rol: rol.value.trim()
-                        };
-                            console.log("Guardando usuario...");
-                            let usuarioGuardado = await postUsuarios(usuario);
-                            console.log("Usuario guardado con éxito:", usuarioGuardado);
+                        }
+                        await postUsuarios(usuario);
+                        Swal.fire({
+                            title: "Registro exitoso",
+                            icon: "success",
+                            confirmButtonText: "Continuar"
+                        }).then(() => {
 
-                        await Swal.fire({
-                                    title: "Registro exitoso",
-                                    text: "Usuario creado correctamente",
-                                    icon: "success",
-                                    confirmButtonText: "Continuar"
-                        });
-
-                                        console.log("Redirigiendo a login.html...");
-                                        window.location.href = "login.html";
+                            window.location.href = "login.html";
+                        });;
                     } else {
                         Swal.fire({
                             title: "Error",
