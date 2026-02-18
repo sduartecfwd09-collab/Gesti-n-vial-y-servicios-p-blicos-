@@ -113,10 +113,22 @@ async function mostrarRoles() {
             mostrarRoles(); /* muestreme el cambio de inmediato despues de actualizar*/
         });
 
-        btnEliminar.addEventListener("click", async function () {
-            await deleteUsuarios(rol.id);
-            mostrarRoles();
-        });
+          btnEliminar.addEventListener("click", async function () {
+          const resultado = await Swal.fire({
+        title: "¿Seguro que quieres eliminar este usuario?",
+        text: "Esta acción no se puede deshacer",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar"
+    });
+
+    if (resultado.isConfirmed) {
+        await deleteReportes(reporte.id);
+        mostrarReportes();
+    }
+
+});
 
 
 

@@ -48,7 +48,7 @@ async function mostrarReportes() {
         btnPendiente.textContent = "Pendiente";/* los valores de cada boton */
         btnProceso.textContent = "En Proceso";
         btnResuelto.textContent = "Resuelto";
-        btnEliminar.textContent = "Reporte inválido";
+        btnEliminar.textContent = "Eliminar reporte ";
 
         btnPendiente.addEventListener("click", async function () {
             await updatePatchReportes(reporte.id, { Estado: "Pendiente" });
@@ -66,9 +66,21 @@ async function mostrarReportes() {
         });
 
         btnEliminar.addEventListener("click", async function () {
-            await deleteReportes(reporte.id);
-            mostrarReportes();
-        });
+          const resultado = await Swal.fire({
+        title: "¿Seguro que quieres eliminar este reporte?",
+        text: "Esta acción no se puede deshacer",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar"
+    });
+
+    if (resultado.isConfirmed) {
+        await deleteReportes(reporte.id);
+        mostrarReportes();
+    }
+
+});
 
         tdAcciones.appendChild(btnEliminar);
         tdAcciones.appendChild(btnPendiente);
