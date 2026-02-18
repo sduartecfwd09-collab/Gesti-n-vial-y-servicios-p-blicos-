@@ -5,8 +5,19 @@ const usuarioActivo = JSON.parse(localStorage.getItem("usuarioLogueado"))
 
 const navCerrar = document.getElementById("navCerrar"); /* nav dinamicos para varias condiciones, es lo mismo que hice en edit en la otro archivo al usar span */
 const navRol = document.getElementById("navRol");
+const navLogin = document.getElementById("navLogin");
+
+/* aparezca login solo si hay usuario no logeado o nuevo */
+if (!usuarioActivo) {
+
+    const link = document.createElement("a");
+link.textContent = "login";
+        link.href = "../pages/login.html";
+    
 
 
+    navRol.appendChild(link);
+}
 /* Parte del codigo dedicado a las nva dinamicas */
 if (usuarioActivo) {
 
