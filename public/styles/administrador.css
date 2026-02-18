@@ -5,23 +5,113 @@ body {
     background: url('../img/Municipalidad-Escazu-1-jpg.webp') no-repeat center center fixed;
     background-size: cover;
 }
-
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    text-align: center;
+/* ====== FONDO ====== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url('../img/Municipalidad-Escazu-1-jpg.webp') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
 }
 
-h1 {
-    color: var(--white);
-    font-size: 3rem;
-    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
-    background: rgba(0, 0, 0, 0.4);
-    padding: 20px 40px;
-    border-radius: 12px;
-    backdrop-filter: blur(4px);
+/* Overlay oscuro */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+/* ====== NAVBAR ====== */
+.navbar-custom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  background: rgba(0, 0, 80, 0.85);
+}
+
+.navbar-custom a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar-custom a:hover {
+  text-decoration: underline;
+}
+
+/* ====== MAIN ====== */
+.main-admin {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+/* ====== TITULO ====== */
+.titulo-admin {
+  color: white;
+  font-size: 42px;
+  margin-bottom: 40px;
+  background: rgba(0, 0, 0, 0.6);
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 12px;
+}
+
+/* ====== TABLA ====== */
+.tabla-contenedor {
+  width: 80%;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.tabla-admin {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-admin thead {
+  background: #0d3b8e;
+  color: white;
+}
+
+.tabla-admin th,
+.tabla-admin td {
+  padding: 15px;
+  text-align: center;
+}
+
+.tabla-admin tbody tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+/* ====== BOTONES ====== */
+.btn-admin {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-editar {
+  background: #3498db;
+}
+
+.btn-eliminar {
+  background: #e74c3c;
+}
+
+.btn-admin:hover {
+  opacity: 0.85;
 }
