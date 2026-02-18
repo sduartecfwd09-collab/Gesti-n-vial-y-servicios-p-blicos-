@@ -56,15 +56,15 @@ body {
 ================================= */
 .witch-container {
     position: absolute;
-    top: 25%;
-    right: -200px;
-    z-index: -1;
-    animation: flyAcross 18s linear infinite;
+    top: 45%;
+    right: 200px;
+    z-index: -400;
+    animation: flyAcross 12s linear infinite;
 }
 
 .witch-img {
-    width: 120px;
-    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+    width: 200px;
+    filter: drop-shadow(0 0 10px rgba(172, 161, 161, 0.5));
 }
 
 @keyframes flyAcross {
