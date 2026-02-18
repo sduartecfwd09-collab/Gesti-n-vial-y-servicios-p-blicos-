@@ -15,7 +15,7 @@ if (usuarioActivo) {
         link.href = "../pages/usuario.html";
     }
     else {
-        if (usuarioActivo.rol === "administrador") {
+        if (usuarioActivo.rol === "Administrador") {
             link.textContent = "Administrador";
             link.href = "../pages/administrador.html";
         }

@@ -43,12 +43,12 @@ async function mostrarReportes() {
         const btnPendiente = document.createElement("button"); /* desde aqui se diseñan todas las constantes,formato y eventos para cambiar el estado */
         const btnProceso = document.createElement("button");
         const btnResuelto = document.createElement("button");
-        const btnEliminarReporteInvalido = document.createElement("button");
+        const btnEliminar = document.createElement("button");;
 
         btnPendiente.textContent = "Pendiente";/* los valores de cada boton */
         btnProceso.textContent = "En Proceso";
         btnResuelto.textContent = "Resuelto";
-        btnEliminarReporteInvalido = "Reporte inválido";
+        btnEliminar.textContent = "Reporte inválido";
 
         btnPendiente.addEventListener("click", async function () {
             await updatePatchReportes(reporte.id, { Estado: "Pendiente" });
@@ -64,11 +64,13 @@ async function mostrarReportes() {
             await updatePatchReportes(reporte.id, { Estado: "Resuelto" });
             mostrarReportes(); /* muestreme el cambio de inmediato despues de actualizar*/
         });
-        btnEliminarReporteInvalido.addEventListener("click", async function () {
-            await deleteReportes(reporte.id)
-            mostrarReportes(); /* muestreme el cambio de inmediato despues de actualizar*/
+
+        btnEliminar.addEventListener("click", async function () {
+            await deleteReportes(reporte.id);
+            mostrarReportes();
         });
 
+        tdAcciones.appendChild(btnEliminar);
         tdAcciones.appendChild(btnPendiente);
         tdAcciones.appendChild(btnProceso);
         tdAcciones.appendChild(btnResuelto);
@@ -97,7 +99,7 @@ if (usuarioActivo) {
         link.href = "../pages/usuario.html";
     }
     else {
-        if (usuarioActivo.rol === "administrador") {
+        if (usuarioActivo.rol === "Administrador") {
             link.textContent = "Administrador";
             link.href = "../pages/administrador.html";
         }
@@ -107,7 +109,7 @@ if (usuarioActivo) {
     navRol.appendChild(link);
 }
 
-/* a cerrar seccion, ysando un boton que elimine el local storage */
+/* a cerrar seccion, usando un boton que elimine el local storage */
 if (usuarioActivo) {
 
     const btnCerrar = document.createElement("button");

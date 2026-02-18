@@ -96,7 +96,7 @@ if (usuarioActivo) {
         link.textContent = "Panel Usuario";
         link.href = "../pages/usuario.html";
     }
-     else{ if (usuarioActivo.rol === "administrador") {
+     else{ if (usuarioActivo.rol === "Administrador") {
         link.textContent = "Administrador";
         link.href = "../pages/administrador.html";
     }}
