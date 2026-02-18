@@ -11,6 +11,7 @@ async function getUsuarios() {
 }
 export { getUsuarios }; 
 
+
 /* post es para agregar datos mediante parametros a una url*/
 async function postUsuarios(usuarios) {
     try {
@@ -29,8 +30,9 @@ async function postUsuarios(usuarios) {
 }
 export { postUsuarios };
 
+
 /* put es para actualizar datos mediante parametros a una url*/
-async function updateUser(id, usuarios) {
+async function updateUsuarios(id, usuarios) {
     try {
         const respuesta = await fetch(`http://localhost:3000/usuarios/${id}`, {
             method: "PUT",
@@ -45,10 +47,12 @@ async function updateUser(id, usuarios) {
         console.error("Error al actualizar el usuario", error);
     }
 }
-export { updateUser };
+export { updateUsuarios };
+
+
 
 /* Delete */
-async function deleteUsers(id) {
+async function deleteUsuarios(id) {
     try {
         const respuesta = await fetch(`http://localhost:3000/usuarios/${id}`, { /* Con put se debe abrir una llavem donde especifica el tipo de metodo y el header(siempre se mantiene igual) */
             method: "DELETE",
@@ -59,10 +63,11 @@ async function deleteUsers(id) {
         console.error("Error al actualizar el usuario", error);
     }
 }
-export { deleteUsers };
+export { deleteUsuarios };
+
 
 /* Patch editar */
-async function updatePatchUser(id, usuarios) {
+async function updatePatchUsuarios(id, usuarios) {
     try {
         const respuesta = await fetch(`http://localhost:3000/usuarios/${id}`, {
             method: "PATCH",
@@ -77,4 +82,5 @@ async function updatePatchUser(id, usuarios) {
         console.error("Error al actualizar el usuario", error);
     }
 }
-export { updatePatchUser };
+export { updatePatchUsuarios };
+

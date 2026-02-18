@@ -17,9 +17,28 @@
       "telefono": "12345678",
       "cedula": "1234567890",
       "rol": "Usuario"
+    },
+    {
+      "id": "7440",
+      "nombre": "admin",
+      "correo": "admin@gmail.com",
+      "contrasena": "123456",
+      "telefono": "8089678657",
+      "cedula": "1233456789",
+      "rol": "usuario"
     }
   ],
-  "reportes": [],
+  "reportes": [
+    {
+      "id": "a1d2",
+      "tipoReporte": "alcantarillado",
+      "descripcionProblema": "sdghs",
+      "ubicacionProblema": "El Poró",
+      "direccion": "sdgdsg",
+      "usuario": "7440",
+      "Estado": "Pendiente"
+    }
+  ],
   "proyectos": [],
   "servicios": []
 }
