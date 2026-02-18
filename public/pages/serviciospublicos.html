@@ -8,12 +8,12 @@
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="../styles/serviciospublicos.css"> 
+  <link rel="stylesheet" href="../styles/serviciospublicos.css">
 </head>
 </head>
 
 <body>
-   <nav>
+  <nav>
     <a class="navbar-brand" href="../pages/index.html">Home</a>
     <a class="nav-link" href="../pages/gestiondereportes.html">Gestión de Reportes</a>
     <a class="nav-link" href="../pages/serviciospublicos.html">Gestión de Servicios Públicos</a>
@@ -23,7 +23,55 @@
       <span id="navCerrar"></span>
     </div>
   </nav>
+  <main>
+    <h2>Formulario para administrar servicios públicos</h2>
+    <select id="tipoServicio">
+      <option value="">Seleccione un tipo de servicio</option>
+      <option value="alumbrado_publico">Alumbrado público</option>
+      <option value="recoleccion_residuos">Recolección de residuos</option>
+      <option value="limpieza_espacios_publicos">Limpieza de espacios públicos</option>
+      <option value="mantenimiento_parques">Mantenimiento de parques y zonas verdes</option>
+      <option value="mantenimiento_drenajes">Mantenimiento de drenajes y alcantarillado</option>
+      <option value="gestion_aguas_pluviales">Gestión de aguas pluviales</option>
+      <option value="cementerios">Servicios de cementerios</option>
+      <option value="control_plagas">Control de plagas urbanas</option>
+      <option value="mantenimiento_edificios">Mantenimiento de edificios municipales</option>
+      <option value="aseo_urbano">Aseo urbano</option>
+    </select> <br> <br>
+    <label for="descripcionServicioPublico">Descripción del servicio público:</label> <br><br>
+    <textarea name="descripcionServicioPublico" id="descripcionServicioPublico"
+      placeholder="Describa el serivicio pública"></textarea><br><br>
+    <input type="text" name="encargadoServicioPublico" placeholder="Nombre del funcionario encargado"
+      id="encargadoServicioPublico"><br><br>
 
+    <label for="ubicacionServicio">Descripción del serivicio público:</label> <br><br>
+    <select name="ubicacionServicio" id="ubicacionServicio">
+      <option value="Bello Horizontal">Bello Horizontal</option>
+      <option value="Carrizal">Carrizal</option>
+      <option value="Centro">Centro</option>
+      <option value="El Poró">El Poró</option>
+      <option value="La Rosa Linda">La Rosa Linda</option>
+      <option value="Los Salitrillos">Los Salitrillos</option>
+      <option value="El Curio">El Curio</option>
+    </select>
+    <textarea name="direccionDelServicio" id="direccionDelServicio" placeholder="Dirección exacta"></textarea><br><br>
+    <button id="btnServicioPublica">Crear servicio</button>
+
+    <h3>registro de servicios públicos</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo de servicio:</th>
+          <th>Descripción del servicio público:</th>
+          <th>ubicacion del problema:</th>
+          <th>Dirección exacta</th>
+          <th>Nombre del funcionario encargado</th>
+          <th>Estado:</th>
+        </tr>
+      </thead>
+      <tbody id="contendorServicios"></tbody>
+    </table>
+  </main>
 
 
 
