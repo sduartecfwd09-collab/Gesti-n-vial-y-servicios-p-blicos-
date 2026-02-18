@@ -71,8 +71,6 @@ btnRegistrar.addEventListener("click", async function () {
                     } else {
                         rolAsignado = "usuario"
                     }
-
-
                     if (contrasena.value === confirmar_contrasena.value) {
                         const usuario = {
                             nombre: nombre.value.trim(),
@@ -84,12 +82,6 @@ btnRegistrar.addEventListener("click", async function () {
                         }
                         await postUsuarios(usuario);
                         //let admin = await getUsuarios();
-
-
-
-
-
-
                         Swal.fire({
                             title: "Registro exitoso",
                             icon: "success",
@@ -111,16 +103,8 @@ btnRegistrar.addEventListener("click", async function () {
 
                 }
             }
-
-
-
-
-
-
         }
     }
-
-
 });
 
 

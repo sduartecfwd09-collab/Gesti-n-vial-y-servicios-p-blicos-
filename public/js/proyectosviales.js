@@ -8,7 +8,7 @@ const navRol = document.getElementById("navRol");
 /* Parte del codigo dedicado a las nva dinamicas */
 if (usuarioActivo) {
 
-    const link = document.createElement("a");
+    const link = document.createElement("a"); /* crea un elemento de redireccion */
 
     if (usuarioActivo.rol === "usuario") {
         link.textContent = "Panel Usuario";

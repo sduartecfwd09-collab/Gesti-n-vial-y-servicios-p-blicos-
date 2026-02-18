@@ -45,7 +45,7 @@ btnReportar.addEventListener("click", async () => {
         });
 
 
-        tipoReporte.value = ""; /* limpiar inputa */
+        tipoReporte.value = ""; /* limpiar inputs */
         descripcionProblema.value = "";
         ubicacionProblema.value = "";
         direccion.value = "";
