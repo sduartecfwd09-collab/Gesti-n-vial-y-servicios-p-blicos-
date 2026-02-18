@@ -8,13 +8,13 @@
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="../styles/login.css"> 
+  <link rel="stylesheet" href="../styles/login.css">
 </head>
 </head>
 
 <body>
 
-<!-- Background Scene -->
+  <!-- Background Scene -->
   <div class="background-scene">
     <div class="moon"></div>
     <div class="witch-container">
@@ -25,21 +25,29 @@
   </div>
 
   <header>
-    <nav >
-      
-        <a class="navbar-brand" href="../pages/index.html">Home</a>
-              <a class="nav-link active" aria-current="page" href="../pages/login.html">Login</a>
-            
+  <nav class="custom-nav">
+
+      <a class="navbar-brand" href="../pages/index.html">Home</a>
+      <a class="nav-link active" aria-current="page" href="../pages/login.html">Login</a>
+
     </nav>
   </header>
-
+  <div class="main-container">
+  <div class="login-card">
   <h1>USUARIO</h1>
 
-  <input type="email" name="correo" placeholder="correo del usuario" id="correoUsuario"><br><br>
-  <input type="password" name="contrasena" placeholder="contraseña usuario" id="contrasenaUsuario"><br><br>
-  <button id="btnIniciarSesion">Iniciar Sesión</button>
-  <button id="btnCrearCuenta"> Crear cuenta</button>
+  <label for="correoUsuario">Correo</label>
+  <input type="email" id="correoUsuario" placeholder="Correo del usuario">
 
+  <label for="contrasenaUsuario">Contraseña</label>
+  <input type="password" id="contrasenaUsuario" placeholder="Contraseña usuario">
+
+  <div class="btn-group">
+    <button id="btnIniciarSesion">Iniciar Sesión</button>
+    <button id="btnCrearCuenta">Crear cuenta</button>
+  </div>
+</div> 
+</div>
 
 
 

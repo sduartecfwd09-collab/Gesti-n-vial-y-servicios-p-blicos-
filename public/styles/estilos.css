@@ -1,21 +1,18 @@
 /* SHARED GLOBAL STYLES */
 :root {
     /* Bandera de Escazú Palette */
-    --primary-blue: #003399;
-    /* Azul (Cielo y Pureza) */
-    --primary-white: #ffffff;
-    /* Blanco (Paz y Tranquilidad) */
-    --primary-green: #2E7D32;
-    /* Verde (Naturaleza y Entorno) */
-
-    --hover-color: #1976D2;
-    /* Interactive Blue */
-    --background-light: #F5F5F5;
+    --primary-blue: #003399;     /* Azul Institucional */
+    --primary-white: #ffffff;    /* Blanco */
+    --primary-green: #2E7D32;    /* Verde Institucional */
+    
+    --hover-blue: #1547A1;
+    --hover-green: #1B5E20;
+    --background-light: #F8F9FA;
     --text-color: #1A1A1A;
     --white: #ffffff;
-    --gradient: linear-gradient(135deg, #003399 0%, #2E7D32 100%);
-    /* Blue to Green transition */
-    --shadow: 0 10px 25px -5px rgba(0, 51, 153, 0.15), 0 10px 10px -5px rgba(0, 51, 153, 0.1);
+    --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+    --shadow-md: 0 4px 6px -1px rgba(0, 51, 153, 0.1), 0 2px 4px -1px rgba(0, 51, 153, 0.06);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 51, 153, 0.15), 0 10px 10px -5px rgba(0, 51, 153, 0.1);
 }
 
 body {
@@ -23,14 +20,13 @@ body {
     min-height: 100vh;
     margin: 0;
     padding-top: 80px;
-    /* Space for the fixed nav */
     color: var(--text-color);
     background: var(--background-light);
     display: flex;
     flex-direction: column;
 }
 
-/* SHARED NAVIGATION AREA - Fixed at the top */
+/* SHARED NAVIGATION AREA */
 nav {
     position: fixed;
     top: 0;
@@ -39,65 +35,74 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 50px;
+    padding: 15px 50px;
     background: var(--white);
-    /* Representing Peace/Tranquility */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     border-bottom: 3px solid var(--primary-green);
-    /* Nature Green */
     z-index: 9999;
     box-sizing: border-box;
 }
 
 nav a {
     color: var(--primary-blue) !important;
-    /* Institutional Blue */
     text-decoration: none;
     font-weight: 600;
     margin: 0 10px;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 nav a:hover {
     color: var(--primary-green) !important;
-    background: rgba(0, 51, 153, 0.05);
+    background: rgba(46, 125, 50, 0.05);
+    transform: translateY(-1px);
 }
 
 .navbar-brand {
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: var(--primary-blue) !important;
+    letter-spacing: -0.5px;
 }
 
 /* DYNAMIC NAV ELEMENTS */
 #navRol a {
     color: var(--primary-green) !important;
-    border: 1px solid var(--primary-green);
+    border: 1.5px solid var(--primary-green);
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 #navCerrar button {
     background: transparent;
-    border: 1px solid #ff4d4d;
-    color: #ff4d4d;
-    padding: 5px 15px;
-    border-radius: 6px;
+    border: 1.5px solid #d32f2f;
+    color: #d32f2f;
+    padding: 6px 18px;
+    border-radius: 8px;
     cursor: pointer;
     font-family: inherit;
     font-weight: 600;
+    transition: all 0.2s ease;
 }
 
 #navCerrar button:hover {
-    background: #ff4d4d;
+    background: #d32f2f;
     color: white;
+    box-shadow: 0 4px 8px rgba(211, 47, 47, 0.2);
 }
 
 /* COMMON BUTTONS FOUNDATION */
 button {
-    font-family: inherit;
+    font-family: 'Poppins', sans-serif;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    outline: none;
+}
+
+button:active {
+    transform: scale(0.98);
 }

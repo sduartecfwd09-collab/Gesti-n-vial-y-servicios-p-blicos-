@@ -1,0 +1,228 @@
+/* ===============================
+   VARIABLES
+================================= */
+:root {
+    --primary-blue: #003399;
+    --primary-green: #2E7D32;
+    --hover-green: #1B5E20;
+    --white: #ffffff;
+}
+
+/* ===============================
+   BODY GENERAL
+================================= */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #0f172a;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ===============================
+   BACKGROUND SCENE
+================================= */
+.background-scene {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+}
+
+/* Luna */
+.moon {
+    position: absolute;
+    top: 60px;
+    right: 100px;
+    width: 110px;
+    height: 110px;
+    background: #fdfcf0;
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(253, 252, 240, 0.4);
+}
+
+/* Montañas */
+.mountains {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, #1e293b, #0f172a);
+    clip-path: polygon(0% 100%, 20% 60%, 40% 80%, 60% 30%, 80% 90%, 100% 50%, 100% 100%);
+}
+
+/* ===============================
+   BRUJA ANIMADA
+================================= */
+.witch-container {
+    position: absolute;
+    top: 25%;
+    right: -200px;
+    z-index: -1;
+    animation: flyAcross 18s linear infinite;
+}
+
+.witch-img {
+    width: 120px;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+}
+
+@keyframes flyAcross {
+    0% {
+        transform: translateX(20vw) translateY(0);
+    }
+    25% {
+        transform: translateX(-40vw) translateY(-250px);
+    }
+    50% {
+        transform: translateX(-60vw) translateY(10px);
+    }
+    75% {
+        transform: translateX(-60vw) translateY(-120px);
+    }
+    100% {
+        transform: translateX(60vw) translateY(500px);
+    }
+}
+
+/* ===============================
+   TARJETA LOGIN
+================================= */
+.login-card {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.97);
+    padding: 55px 45px;
+    border-radius: 22px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+    animation: fadeIn 0.8s ease;
+}
+
+/* Título */
+.login-card h1 {
+    text-align: center;
+    color: var(--primary-green);
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* Inputs */
+.login-card input {
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.login-card input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px rgba(0, 51, 153, 0.08);
+    outline: none;
+}
+
+/* Grupo de botones */
+.btn-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* Botón principal */
+#btnIniciarSesion {
+    flex: 1;
+    background: linear-gradient(to right, #003399, #2E7D32);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btnIniciarSesion:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+/* Botón secundario */
+#btnCrearCuenta {
+    flex: 1;
+    background: white;
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btnCrearCuenta:hover {
+    background: rgba(46, 125, 50, 0.08);
+    transform: translateY(-3px);
+}
+
+/* ===============================
+   ANIMACIÓN ENTRADA
+================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   RESPONSIVE
+================================= */
+@media (max-width: 480px) {
+    .login-card {
+        width: 90%;
+        padding: 40px 25px;
+    }
+
+    .btn-group {
+        flex-direction: column;
+    }
+}
+
+/* Contenedor principal */
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* NAV ESTILIZADA */
+.custom-nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+    padding: 20px 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+}
+
+.custom-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.custom-nav a:hover {
+    color: #2E7D32;
+}

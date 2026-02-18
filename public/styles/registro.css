@@ -1,79 +1,67 @@
 :root {
     /* Bandera de Escazú Palette */
     --primary-blue: #003399;
-    /* Azul */
     --primary-white: #ffffff;
-    /* Blanco */
     --primary-green: #2E7D32;
-    /* Verde */
-
-    --hover-color: #1976D2;
-    --background-light: #F5F5F5;
+    --hover-blue: #1547A1;
     --text-color: #1A1A1A;
     --white: #ffffff;
-    --gradient: linear-gradient(135deg, #003399 0%, #2E7D32 100%);
-    --shadow: 0 10px 25px -5px rgba(0, 51, 153, 0.2), 0 10px 10px -5px rgba(0, 51, 153, 0.1);
+    --gradient: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+    --shadow-premium: 0 15px 35px rgba(0, 51, 153, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     display: grid;
-    /* Columns: Spacer | Left Input Col | Right Input Col | Spacer */
-    grid-template-columns: 1fr minmax(250px, 300px) minmax(250px, 300px) 1fr;
-    /* Rows: Nav | Title | Inputs (3 rows) | Button | Spacer */
+    grid-template-columns: 1fr minmax(280px, 350px) minmax(280px, 350px) 1fr;
     grid-auto-rows: min-content;
-    gap: 20px 30px;
-    /* Row gap 20px, Col gap 30px */
-
+    gap: 15px 30px;
     min-height: 100vh;
     margin: 0;
     color: var(--text-color);
-    /* Image background */
-    background: url('../img/cerro89\ \(1\).jpg') no-repeat center center fixed;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/cerro89\ \(1\).jpg') no-repeat center center fixed;
     background-size: cover;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 
 /* CARDBOARD BACKGROUND (Virtual Container) */
 body::before {
     content: "";
     grid-column: 2 / 4;
-    /* Span both input columns */
-    grid-row: 2 / 7;
-    /* Span From Title to Button */
+    grid-row: 2 / 8;
     background: var(--white);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
+    box-shadow: var(--shadow-premium);
     z-index: -1;
     margin: -30px -40px;
-    /* Padding effect */
 }
 
 /* HEADER / NAV */
 header {
     grid-column: 1 / -1;
     grid-row: 1;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 20px 50px;
+    margin-bottom: 40px;
 }
 
 nav {
     display: flex;
-    gap: 20px;
+    gap: 30px;
+    align-items: center;
 }
 
 .navbar-brand,
 .nav-link {
     color: var(--white) !important;
-    /* White on blue bg */
     text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
 }
 
-.navbar-brand:hover,
 .nav-link:hover {
-    opacity: 0.8;
+    color: var(--primary-green) !important;
+    transform: translateY(-2px);
 }
 
 /* TITLE */
@@ -81,15 +69,14 @@ h2 {
     grid-column: 2 / 4;
     grid-row: 2;
     text-align: center;
-    color: var(--primary-green);
-    font-weight: 700;
-    margin: 0 0 10px 0;
-    font-size: 2rem;
+    color: var(--primary-blue);
+    font-weight: 800;
+    margin: 20px 0 30px 0;
+    font-size: 2.2rem;
+    letter-spacing: -0.5px;
 }
 
 /* INPUTS - 2 Column Layout */
-
-/* Left Column: Personal Info */
 #nombre {
     grid-column: 2 / 3;
     grid-row: 3;
@@ -105,7 +92,6 @@ h2 {
     grid-row: 5;
 }
 
-/* Right Column: Account Info */
 #correo {
     grid-column: 3 / 4;
     grid-row: 3;
@@ -124,25 +110,25 @@ h2 {
 /* Common Input Styles */
 input {
     width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
+    padding: 14px 18px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
     font-size: 1rem;
     box-sizing: border-box;
-    transition: all 0.3s ease;
-    background: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #f8fafc;
     font-family: inherit;
 }
 
 input:focus {
     border-color: var(--primary-blue);
+    background: white;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 51, 153, 0.1);
+    box-shadow: 0 0 0 4px rgba(0, 51, 153, 0.1);
 }
 
-/* Placeholder styling */
 ::placeholder {
-    color: #999;
+    color: #94a3b8;
 }
 
 /* Hide <br> tags */
@@ -153,48 +139,46 @@ br {
 /* BUTTON */
 #btnRegistrar {
     grid-column: 2 / 4;
-    /* Span full width of content */
     grid-row: 6;
-    background: var(--gradient);
+    background: var(--primary-blue);
     color: var(--white);
     border: none;
-    border-radius: 8px;
-    padding: 14px;
+    border-radius: 12px;
+    padding: 16px;
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 10px;
+    margin-top: 20px;
     box-shadow: 0 4px 6px rgba(0, 51, 153, 0.2);
 }
 
 #btnRegistrar:hover {
+    background: var(--hover-blue);
     transform: translateY(-2px);
-    filter: brightness(1.1);
-    box-shadow: 0 6px 12px rgba(0, 51, 153, 0.3);
+    box-shadow: 0 8px 15px rgba(0, 51, 153, 0.3);
 }
 
 /* RESPONSIVENESS */
 @media (max-width: 768px) {
     body {
-        /* Single column stack */
         grid-template-columns: 20px 1fr 20px;
         grid-auto-rows: min-content;
         gap: 15px;
+        padding-bottom: 40px;
     }
 
     body::before {
         grid-column: 2 / 3;
-        grid-row: 2 / 9;
-        /* Extend down covering all inputs */
+        grid-row: 2 / 10;
         margin: -20px -20px;
     }
 
     h2 {
         grid-column: 2 / 3;
+        font-size: 1.8rem;
     }
 
-    /* Stack all inputs in one column */
     #nombre,
     #cedula,
     #telefono,
@@ -204,6 +188,9 @@ br {
     #btnRegistrar {
         grid-column: 2 / 3;
         grid-row: auto;
-        /* Auto-flow */
+    }
+
+    header {
+        padding: 20px;
     }
 }
