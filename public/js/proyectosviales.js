@@ -1,23 +1,26 @@
 import { postProyectos } from "../services/serviceProyectos.js"
 import { getProyectos } from "../services/serviceProyectos.js"
 
-let  = document.getElementById("");
-let  = document.getElementById("");
-let  = document.getElementById("");
-let  = document.getElementById("");
-let = document.getElementById("");
+let nombreProyecto = document.getElementById("nombreProyecto");
+let descripcionProyecto = document.getElementById("descripcionProyecto");
+let tipoCostos = document.getElementById("tipoCostos");
+let fechaInicio = document.getElementById("fechaInicio");
+let ubicacionProyecto = document.getElementById("ubicacionProyecto");
+let direccionProyecto = document.getElementById("direccionProyecto");
 
 let btnViales = document.querySelector(".btnViales")
 const usuarioActivo = JSON.parse(localStorage.getItem("usuarioLogueado"))
+let contendorViales = document.getElementById("contendorViales")
+
 
 const navCerrar = document.getElementById("navCerrar"); /* nav dinamicos para varias condiciones, es lo mismo que hice en edit en la otro archivo al usar span */
 const navRol = document.getElementById("navRol");
 
 
-mostrarReportes();
+mostrarProyectos();
 
-btnReportar.addEventListener("click", async () => {
-    if (tipoReporte.value.trim() == "" || descripcionProblema.value.trim() == "" || ubicacionProblema.value.trim() == "" || direccion.value.trim() == "") {
+btnViales.addEventListener("click", async () => {
+    if (nombreProyecto.value.trim() == "" || descripcionProyecto.value.trim() == "" || tipoCostos.value.trim() == "" || fechaInicio.value.trim() == "" || ubicacionProyecto.value.trim() == "" || direccionProyecto.value.trim() == "") {
         Swal.fire({
             title: "Error",
             text: "Todos los campos son obligatorios",
@@ -25,64 +28,81 @@ btnReportar.addEventListener("click", async () => {
             confirmButtonText: "OK"
         });
     } else {
-        const reportes = {
-            tipoReporte: tipoReporte.value.trim(),
-            descripcionProblema: descripcionProblema.value.trim(),
-            ubicacionProblema: ubicacionProblema.value.trim(),
-            direccion: direccion.value.trim(),
-            usuario: usuarioActivo.id, /* esto permite guardar el id del usuario activo que envió el formulario */
-            Estado: "Pendiente"
+        const proyectos = {
+            nombreProyecto: nombreProyecto.value.trim(),
+            descripcionProyecto: descripcionProyecto.value.trim(),
+            tipoCostos: tipoCostos.value.trim(),
+            fechaInicio: fechaInicio.value.trim(),
+            ubicacionProyecto: ubicacionProyecto.value.trim(),
+            direccionProyecto: direccionProyecto.value.trim(),
+            adminProyecto: usuarioActivo.id, /* esto permite guardar el id del usuario activo que envió el formulario */
+            EstadoProyecto: "Pendiente"
         }
-        await postReportes(reportes);
+        await postProyectos(proyectos);
 
-        mostrarReportes();/* para que una vez se guarden los datos, se vuelva a ejecutar la funcion get(de abajo), permitiendo que se actualice al instante la tabla, una vez se da click */
+        mostrarProyectos();/* para que una vez se guarden los datos, se vuelva a ejecutar la funcion get(de abajo), permitiendo que se actualice al instante la tabla, una vez se da click */
 
 
         Swal.fire({
-            title: "Registro de reporte exitoso",
+            title: "Registro de proyecto vial exitoso",
             icon: "success",
             confirmButtonText: "Continuar"
         });
 
 
-        tipoReporte.value = ""; /* limpiar inputs */
-        descripcionProblema.value = "";
-        ubicacionProblema.value = "";
-        direccion.value = "";
+        /* limpiar inputs */
+        nombreProyecto.value.trim() = "";
+        descripcionProyecto.value.trim() = "";
+        tipoCostos.value.trim() = "";
+        fechaInicio.value.trim() = "";
+        ubicacionProyecto.value.trim() = "";
+        direccionProyecto.value.trim() = "";
     }
 })
 
-async function mostrarReportes() {
-    let reporte = await getReportes();
+async function mostrarProyectos() {
+    let proyecto = await getProyectos();
 
     contendor.textContent = ""; // limpiar tabla
 
-    for (let i = 0; i < reporte.length; i++) {
-        const reportesEnviados = reporte[i];
-        if (reportesEnviados.usuario === usuarioActivo.id) { /* para que la lista aparezca solo cuando el id del usuario activo que esta en el localstorage, el cual fue llamado con un get y parse, arriba de este js coincida.
+    for (let i = 0; i < proyecto.length; i++) {
+        const proyectossEnviados = proyecto[i];
+        if (proyectossEnviados === usuarioActivo.id) { /* para que la lista aparezca solo cuando el id del usuario activo que esta en el localstorage, el cual fue llamado con un get y parse, arriba de este js coincida.
             Basicamente lo que hace es de la constante reporte deseada, que esta recorriendo los elementos del dbjson para leerlo, busca alguna informacion que contenga el id del usuario y eso se hizo, con el post de arriba, que al hacer el objeto, le añadimos el id del usuario activo, por lo tanto al enviar, en el db tambien se guarda ese id*/
 
             /* regla para un div vacio, create element, luego textContent, por ultimo appendChild*/
-            const item = document.createElement("tr"); /* determinar que tipo de elemento tendra cada elemento del contenedor si tr o td */
+            const trProyectos = document.createElement("tr"); /* determinar que tipo de elemento tendra cada elemento del contenedor si tr o td */
 
-            const datosTipoReporte = document.createElement("td");
-            const datosDescripcionProblema = document.createElement("td");
-            const datosUbicacionProblema = document.createElement("td");
-              const direccionExacta = document.createElement("td");
-            const datosEstado = document.createElement("td");
+            const tdIdProyecto = document.createElement("td");
+            const tdNombreProyecto = document.createElement("td");
+            const tdsDescripcionDelProyecto = document.createElement("td");
+            const tdCostosProyecto = document.createElement("td");
+            const tdFechaProyecto = document.createElement("td");
+            const tdUbicacion = document.createElement("td");
+            const tdDireccionExacta = document.createElement("td");
+            const tdadminProyecto = document.createElement("td");
+            const tdEstadoProyecto = document.createElement("td");
 
-            datosTipoReporte.textContent = reportesEnviados.tipoReporte;
-            datosDescripcionProblema.textContent = reportesEnviados.descripcionProblema;
-            datosUbicacionProblema.textContent = reportesEnviados.ubicacionProblema; /* el contenido de esos td será lo encontrado en dbjson en la lista productos */
-            direccionExacta.textContent = reportesEnviados.direccion;
-            datosEstado.textContent = reportesEnviados.Estado;
+            tdIdProyecto.textContent = proyectossEnviados.id;
+            tdNombreProyecto.textContent = proyectossEnviados.nombreProyecto;
+            tdsDescripcionDelProyecto.textContent = proyectossEnviados.descripcionProyecto;
+            tdCostosProyecto.textContent = proyectossEnviados.tipoCostos; /* el contenido de esos td será lo encontrado en dbjson en la lista productos */
+            tdFechaProyecto.textContent = proyectossEnviados.fechaInicio;
+            tdUbicacion.textContent = proyectossEnviados.ubicacionProyecto;
+            tdDireccionExacta.textContent = proyectossEnviados.direccionProyecto;
+            tdadminProyecto.textContent = proyectossEnviados.adminProyecto;
+            tdEstadoProyecto.textContent = proyectossEnviados.Estado;
 
-            item.appendChild(datosTipoReporte);
-            item.appendChild(datosDescripcionProblema);
-            item.appendChild(datosUbicacionProblema);/* item tendra hijos y los hijos serán td */
-            item.appendChild(direccionExacta);
-            item.appendChild(datosEstado);
-            contendor.appendChild(item) /* dentro del contenedor va estar item e item es un tr */
+            trProyectos.appendChild(tdIdProyecto);
+            trProyectos.appendChild(tdNombreProyecto);
+            trProyectos.appendChild(tdsDescripcionDelProyecto);
+            trProyectos.appendChild(tdCostosProyecto);/* item tendra hijos y los hijos serán td */
+            trProyectos.appendChild(tdFechaProyecto);
+            trProyectos.appendChild(tdUbicacion);
+            trProyectos.appendChild(tdDireccionExacta);
+            trProyectos.appendChild(tdUsuario);
+            trProyectos.appendChild(tdEstadoProyecto);
+            contendorViales.appendChild(trProyectos) /* dentro del contenedor va estar item e item es un tr */
 
         }
     }
