@@ -1,18 +1,18 @@
 /* GET es para obtener datos de una url a travez de un fetch y un await */
 
-async function getUsuarios() {
+async function getServicios() {
     try {
         const respuesta = await fetch("http://localhost:3000/servicios");/* fetch es una funcion que permite hacer peticiones a una url */
-        const datosUsuarios = await respuesta.json();/* json es un formato de datos que se utiliza para intercambiar datos entre el servidor y el cliente */
-        return datosUsuarios;
+        const datosServicios = await respuesta.json();/* json es un formato de datos que se utiliza para intercambiar datos entre el servidor y el cliente */
+        return datosServicios;
     } catch (error) {
         console.error("Error al obtener los usuarios", error);
     }
 }
-export { getUsuarios };
+export { getServicios };
 
 /* post es para agregar datos mediante parametros a una url*/
-async function postUsuarios(servicios) {
+async function postServicios(servicios) {
     try {
         const respuesta = await fetch("http://localhost:3000/servicios", { /* Con post se debe abrir una llavem donde especifica el tipo de metodo y el header(siempre se mantiene igual) */
             method: "POST",
@@ -21,16 +21,16 @@ async function postUsuarios(servicios) {
             },
             body: JSON.stringify(servicios) /* stringify es para convertir el objeto en string */
         });
-        const datosUsuarios = await respuesta.json();
-        return datosUsuarios;
+        const datosServicios = await respuesta.json();
+        return datosServicios;
     } catch (error) {
         console.error("Error al agregar el usuario", error);
     }
 }
-export { postUsuarios };
+export { postServicios };
 
 /* put es para actualizar datos mediante parametros a una url*/
-async function updateUser(id, servicios) {
+async function updateServicios(id, servicios) {
     try {
         const respuesta = await fetch(`http://localhost:3000/servicios/${id}`, {
             method: "PUT",
@@ -45,10 +45,10 @@ async function updateUser(id, servicios) {
         console.error("Error al actualizar el usuario", error);
     }
 }
-export { updateUser };
+export { updateServicios };
 
 /* Delete */
-async function deleteUsers(id) {
+async function deleteServicios(id) {
     try {
         const respuesta = await fetch(`http://localhost:3000/servicios/${id}`, { /* Con put se debe abrir una llavem donde especifica el tipo de metodo y el header(siempre se mantiene igual) */
             method: "DELETE",
@@ -59,10 +59,10 @@ async function deleteUsers(id) {
         console.error("Error al actualizar el usuario", error);
     }
 }
-export { deleteUsers };
+export { deleteServicios };
 
 /* Patch editar */
-async function updatePatchUser(id, servicios) {
+async function updatePatchServicios(id, servicios) {
     try {
         const respuesta = await fetch(`http://localhost:3000/servicios/${id}`, {
             method: "PATCH",
@@ -77,4 +77,4 @@ async function updatePatchUser(id, servicios) {
         console.error("Error al actualizar el usuario", error);
     }
 }
-export { updatePatchUser };
+export { updatePatchServicios };
