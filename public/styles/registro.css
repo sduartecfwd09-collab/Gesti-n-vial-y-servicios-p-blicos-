@@ -1,0 +1,209 @@
+:root {
+    /* Bandera de Escazú Palette */
+    --primary-blue: #003399;
+    /* Azul */
+    --primary-white: #ffffff;
+    /* Blanco */
+    --primary-green: #2E7D32;
+    /* Verde */
+
+    --hover-color: #1976D2;
+    --background-light: #F5F5F5;
+    --text-color: #1A1A1A;
+    --white: #ffffff;
+    --gradient: linear-gradient(135deg, #003399 0%, #2E7D32 100%);
+    --shadow: 0 10px 25px -5px rgba(0, 51, 153, 0.2), 0 10px 10px -5px rgba(0, 51, 153, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: grid;
+    /* Columns: Spacer | Left Input Col | Right Input Col | Spacer */
+    grid-template-columns: 1fr minmax(250px, 300px) minmax(250px, 300px) 1fr;
+    /* Rows: Nav | Title | Inputs (3 rows) | Button | Spacer */
+    grid-auto-rows: min-content;
+    gap: 20px 30px;
+    /* Row gap 20px, Col gap 30px */
+
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+    /* Image background */
+    background: url('../img/cerro89\ \(1\).jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding-bottom: 40px;
+}
+
+/* CARDBOARD BACKGROUND (Virtual Container) */
+body::before {
+    content: "";
+    grid-column: 2 / 4;
+    /* Span both input columns */
+    grid-row: 2 / 7;
+    /* Span From Title to Button */
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: -1;
+    margin: -30px -40px;
+    /* Padding effect */
+}
+
+/* HEADER / NAV */
+header {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-brand,
+.nav-link {
+    color: var(--white) !important;
+    /* White on blue bg */
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+    opacity: 0.8;
+}
+
+/* TITLE */
+h2 {
+    grid-column: 2 / 4;
+    grid-row: 2;
+    text-align: center;
+    color: var(--primary-green);
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    font-size: 2rem;
+}
+
+/* INPUTS - 2 Column Layout */
+
+/* Left Column: Personal Info */
+#nombre {
+    grid-column: 2 / 3;
+    grid-row: 3;
+}
+
+#cedula {
+    grid-column: 2 / 3;
+    grid-row: 4;
+}
+
+#telefono {
+    grid-column: 2 / 3;
+    grid-row: 5;
+}
+
+/* Right Column: Account Info */
+#correo {
+    grid-column: 3 / 4;
+    grid-row: 3;
+}
+
+#contrasena {
+    grid-column: 3 / 4;
+    grid-row: 4;
+}
+
+#confirmar_contrasena {
+    grid-column: 3 / 4;
+    grid-row: 5;
+}
+
+/* Common Input Styles */
+input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background: #fff;
+    font-family: inherit;
+}
+
+input:focus {
+    border-color: var(--primary-blue);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 51, 153, 0.1);
+}
+
+/* Placeholder styling */
+::placeholder {
+    color: #999;
+}
+
+/* Hide <br> tags */
+br {
+    display: none;
+}
+
+/* BUTTON */
+#btnRegistrar {
+    grid-column: 2 / 4;
+    /* Span full width of content */
+    grid-row: 6;
+    background: var(--gradient);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 51, 153, 0.2);
+}
+
+#btnRegistrar:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow: 0 6px 12px rgba(0, 51, 153, 0.3);
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+    body {
+        /* Single column stack */
+        grid-template-columns: 20px 1fr 20px;
+        grid-auto-rows: min-content;
+        gap: 15px;
+    }
+
+    body::before {
+        grid-column: 2 / 3;
+        grid-row: 2 / 9;
+        /* Extend down covering all inputs */
+        margin: -20px -20px;
+    }
+
+    h2 {
+        grid-column: 2 / 3;
+    }
+
+    /* Stack all inputs in one column */
+    #nombre,
+    #cedula,
+    #telefono,
+    #correo,
+    #contrasena,
+    #confirmar_contrasena,
+    #btnRegistrar {
+        grid-column: 2 / 3;
+        grid-row: auto;
+        /* Auto-flow */
+    }
+}

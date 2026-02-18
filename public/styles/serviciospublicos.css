@@ -1,0 +1,135 @@
+:root {
+    /* Bandera de Escazú Palette */
+    --primary-blue: #003399;
+    /* Azul */
+    --primary-white: #ffffff;
+    /* Blanco */
+    --primary-green: #2E7D32;
+    /* Verde */
+
+    --hover-color: #1976D2;
+    --background-light: #F5F5F5;
+    --text-color: #1A1A1A;
+    --white: #ffffff;
+    --gradient: linear-gradient(135deg, #003399 0%, #2E7D32 100%);
+    --shadow: 0 10px 25px -5px rgba(0, 51, 153, 0.2), 0 10px 10px -5px rgba(0, 51, 153, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--text-color);
+    /* Matching your mountain background preference */
+    background: url('../img/Playas-cerca-de-San-José-de-Costa-Rica.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+/* NAVIGATION */
+nav {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid var(--primary-green);
+}
+
+.navbar-brand {
+    color: var(--white) !important;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.nav-link:hover {
+    color: var(--white) !important;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    color: var(--primary-green) !important;
+    border-bottom: 2px solid var(--primary-green);
+    border-radius: 0;
+}
+
+/* DYNAMIC ELEMENTS (Added by JS) */
+#navRol a {
+    color: var(--primary-green) !important;
+    font-weight: 600;
+    margin-right: 20px;
+    text-decoration: none;
+    padding: 5px 15px;
+    border: 1px solid var(--primary-green);
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+#navRol a:hover {
+    background: var(--primary-green);
+    color: var(--white) !important;
+}
+
+#navCerrar button {
+    background: transparent;
+    border: 2px solid #ff4d4d;
+    color: #ff4d4d;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+#navCerrar button:hover {
+    background: #ff4d4d;
+    color: var(--white);
+    box-shadow: 0 4px 8px rgba(255, 77, 77, 0.3);
+}
+
+/* MAIN CONTENT */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .nav-link {
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    #navRol {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+}

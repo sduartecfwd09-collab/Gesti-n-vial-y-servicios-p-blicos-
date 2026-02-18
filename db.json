@@ -26,9 +26,28 @@
       "telefono": "12345678",
       "cedula": "123456789",
       "rol": "usuario"
+    },
+    {
+      "id": "355d",
+      "nombre": "Mariel",
+      "correo": "mariel@gmail.com",
+      "contrasena": "1234567",
+      "telefono": "56428790",
+      "cedula": "60567076",
+      "rol": "usuario"
     }
   ],
-  "reportes": [],
+  "reportes": [
+    {
+      "id": "65e6",
+      "tipoReporte": "recolecionderesiduos",
+      "descripcionProblema": "rssrgyhuh",
+      "ubicacionProblema": "Carrizal",
+      "direccion": "srftgyhuhu",
+      "usuario": "355d",
+      "Estado": "Pendiente"
+    }
+  ],
   "proyectos": [],
   "servicios": []
 }

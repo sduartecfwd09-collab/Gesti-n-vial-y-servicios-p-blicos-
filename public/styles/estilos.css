@@ -1,0 +1,103 @@
+/* SHARED GLOBAL STYLES */
+:root {
+    /* Bandera de Escazú Palette */
+    --primary-blue: #003399;
+    /* Azul (Cielo y Pureza) */
+    --primary-white: #ffffff;
+    /* Blanco (Paz y Tranquilidad) */
+    --primary-green: #2E7D32;
+    /* Verde (Naturaleza y Entorno) */
+
+    --hover-color: #1976D2;
+    /* Interactive Blue */
+    --background-light: #F5F5F5;
+    --text-color: #1A1A1A;
+    --white: #ffffff;
+    --gradient: linear-gradient(135deg, #003399 0%, #2E7D32 100%);
+    /* Blue to Green transition */
+    --shadow: 0 10px 25px -5px rgba(0, 51, 153, 0.15), 0 10px 10px -5px rgba(0, 51, 153, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 80px;
+    /* Space for the fixed nav */
+    color: var(--text-color);
+    background: var(--background-light);
+    display: flex;
+    flex-direction: column;
+}
+
+/* SHARED NAVIGATION AREA - Fixed at the top */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background: var(--white);
+    /* Representing Peace/Tranquility */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid var(--primary-green);
+    /* Nature Green */
+    z-index: 9999;
+    box-sizing: border-box;
+}
+
+nav a {
+    color: var(--primary-blue) !important;
+    /* Institutional Blue */
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-green) !important;
+    background: rgba(0, 51, 153, 0.05);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-blue) !important;
+}
+
+/* DYNAMIC NAV ELEMENTS */
+#navRol a {
+    color: var(--primary-green) !important;
+    border: 1px solid var(--primary-green);
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+#navCerrar button {
+    background: transparent;
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+    padding: 5px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+}
+
+#navCerrar button:hover {
+    background: #ff4d4d;
+    color: white;
+}
+
+/* COMMON BUTTONS FOUNDATION */
+button {
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
