@@ -1,135 +1,158 @@
-:root {
-    /* Bandera de Escazú Palette */
-    --primary-blue: #003399;
-    /* Azul */
-    --primary-white: #ffffff;
-    /* Blanco */
-    --primary-green: #2E7D32;
-    /* Verde */
-
-    --hover-color: #1976D2;
-    --background-light: #F5F5F5;
-    --text-color: #1A1A1A;
-    --white: #ffffff;
-    --gradient: linear-gradient(135deg, #003399 0%, #2E7D32 100%);
-    --shadow: 0 10px 25px -5px rgba(0, 51, 153, 0.2), 0 10px 10px -5px rgba(0, 51, 153, 0.1);
-}
+@import 'estilos.css';
 
 body {
-    font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
-    margin: 0;
-    color: var(--text-color);
-    /* Matching your mountain background preference */
-    background: url('../img/Playas-cerca-de-San-José-de-Costa-Rica.png') no-repeat center center fixed;
+    /* Use the same background as other pages */
+    background: url('../img/2477269_Joshua2520Brink_Shutterstock.com_EscazuCostaRica.jpg.webp') no-repeat center center fixed;
     background-size: cover;
-    display: flex;
-    flex-direction: column;
 }
 
-/* NAVIGATION */
-nav {
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(8px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border-bottom: 2px solid var(--primary-green);
-}
-
-.navbar-brand {
-    color: var(--white) !important;
-    font-weight: 700;
-    text-decoration: none;
-    font-size: 1.3rem;
-    letter-spacing: 0.5px;
-}
-
-.nav-link {
-    color: rgba(255, 255, 255, 0.9) !important;
-    text-decoration: none;
-    font-weight: 500;
-    margin: 0 15px;
-    transition: all 0.3s ease;
-    padding: 8px 12px;
-    border-radius: 6px;
-}
-
-.nav-link:hover {
-    color: var(--white) !important;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-}
-
-.nav-link.active {
-    color: var(--primary-green) !important;
-    border-bottom: 2px solid var(--primary-green);
-    border-radius: 0;
-}
-
-/* DYNAMIC ELEMENTS (Added by JS) */
-#navRol a {
-    color: var(--primary-green) !important;
-    font-weight: 600;
-    margin-right: 20px;
-    text-decoration: none;
-    padding: 5px 15px;
-    border: 1px solid var(--primary-green);
-    border-radius: 20px;
-    transition: all 0.3s;
-}
-
-#navRol a:hover {
-    background: var(--primary-green);
-    color: var(--white) !important;
-}
-
-#navCerrar button {
-    background: transparent;
-    border: 2px solid #ff4d4d;
-    color: #ff4d4d;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-family: inherit;
-}
-
-#navCerrar button:hover {
-    background: #ff4d4d;
-    color: var(--white);
-    box-shadow: 0 4px 8px rgba(255, 77, 77, 0.3);
-}
-
-/* MAIN CONTENT */
 main {
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
+    width: 90%;
+    max-width: 950px;
+    margin: 50px auto;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* RESPONSIVE */
+h2 {
+    color: var(--primary-green);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    border-bottom: 3px solid var(--primary-green);
+    padding-bottom: 12px;
+    display: inline-block;
+}
+
+h3 {
+    margin-top: 60px;
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* FORM ELEMENTS */
+label {
+    font-weight: 700;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    display: block;
+    font-size: 1.1rem;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary-blue);
+    background: white;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 51, 153, 0.1);
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* BUTTON */
+#btnServicioPublica {
+    background: var(--gradient);
+    color: var(--white);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    box-shadow: 0 10px 20px rgba(0, 51, 153, 0.2);
+    text-transform: uppercase;
+}
+
+#btnServicioPublica:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 51, 153, 0.3);
+    filter: brightness(1.1);
+}
+
+/* TABLE STYLING */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 30px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+th,
+td {
+    padding: 18px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: #f0f7ff;
+}
+
+/* RESPONSIVENESS */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 15px;
-        padding: 20px;
+    main {
+        padding: 30px 20px;
+        width: 95%;
+        margin: 20px auto;
     }
 
-    .nav-link {
-        margin: 5px 0;
-        width: 100%;
-        text-align: center;
+    h3 {
+        font-size: 1.5rem;
     }
 
-    #navRol {
-        display: flex;
-        justify-content: center;
-        width: 100%;
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 }

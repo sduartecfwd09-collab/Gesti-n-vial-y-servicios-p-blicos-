@@ -72,6 +72,44 @@ nav {
     transform: translateY(-2px);
 }
 
+/* Auth Buttons in Nav */
+#navRol,
+#navCerrar {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-login-nav {
+    background-color: var(--primary-green) !important;
+    border: 2px solid var(--white);
+    color: var(--white) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-login-nav:hover {
+    background-color: var(--white) !important;
+    color: var(--primary-green) !important;
+    border-color: var(--primary-green);
+}
+
+.btn-cerrar-nav {
+    background-color: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cerrar-nav:hover {
+    background-color: #ff4444;
+    border-color: #ff4444;
+    transform: translateY(-2px);
+}
+
 /* Main Content Styling */
 main {
     flex: 1;
