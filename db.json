@@ -1,53 +1,25 @@
 {
   "usuarios": [
     {
-      "id": "607d",
-      "nombre": "vanne",
-      "correo": "vanne1986@gmail.com",
-      "contrasena": "123456",
-      "telefono": "23457890",
-      "cedula": "623416789",
+      "id": "e8cb",
+      "nombre": "saraí",
+      "correo": "sarsteph03@gmail.com",
+      "contrasena": "654321",
+      "telefono": "12345678",
+      "cedula": "119980756",
       "rol": "Administrador"
     },
     {
-      "id": "dd6e",
-      "nombre": "Saraí rojas",
-      "correo": "sarairojas@gmail.com",
-      "contrasena": "123456",
-      "telefono": "45679087",
-      "cedula": "643217890",
-      "rol": "usuario"
-    },
-    {
-      "id": "9079",
+      "id": "8134",
       "nombre": "Errol",
-      "correo": "erroldariofallas1997@gmail.com",
+      "correo": "errol1234567@gmail.com",
       "contrasena": "123456",
       "telefono": "12345678",
-      "cedula": "123456789",
-      "rol": "usuario"
-    },
-    {
-      "id": "355d",
-      "nombre": "Mariel",
-      "correo": "mariel@gmail.com",
-      "contrasena": "1234567",
-      "telefono": "56428790",
-      "cedula": "60567076",
-      "rol": "usuario"
+      "cedula": "1234567890",
+      "rol": "Usuario"
     }
   ],
-  "reportes": [
-    {
-      "id": "65e6",
-      "tipoReporte": "recolecionderesiduos",
-      "descripcionProblema": "rssrgyhuh",
-      "ubicacionProblema": "Carrizal",
-      "direccion": "srftgyhuhu",
-      "usuario": "355d",
-      "Estado": "Pendiente"
-    }
-  ],
+  "reportes": [],
   "proyectos": [],
   "servicios": []
 }
