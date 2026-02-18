@@ -14,11 +14,12 @@ if (usuarioActivo) {
         link.textContent = "Panel Usuario";
         link.href = "../pages/usuario.html";
     }
-     else{ if (usuarioActivo.rol === "administrador") {
-        link.textContent = "Administrador";
-        link.href = "../pages/administrador.html";
-    }}
-
+    else {
+        if (usuarioActivo.rol === "administrador") {
+            link.textContent = "Administrador";
+            link.href = "../pages/administrador.html";
+        }
+    }
 
     navRol.appendChild(link);
 }

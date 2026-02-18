@@ -16,7 +16,7 @@ btnIniciarSesion.addEventListener("click", async function () {
                 confirmButtonText: "OK"
             });
         } else {
-            let usuario = await getUsuarios();
+            let usuario = await getUsuarios(); /* este correo existe en el db.json */
             let usuarioNuevo = usuario.find(inicio => correoUsuario.value === inicio.correo)
             if (!usuarioNuevo) {
                 Swal.fire({
@@ -28,7 +28,7 @@ btnIniciarSesion.addEventListener("click", async function () {
 
             } else {
 
-                let usuario = await getUsuarios();
+                let usuario = await getUsuarios(); /* verificar que este correo y contraseña esta en el dbson y las del formulario actual coinciden se crea un dbson */
                 let usuarioLogeado = usuario.find(inicio => correoUsuario.value === inicio.correo && contrasenaUsuario.value === inicio.contrasena)
 
                 if (usuarioLogeado) {
