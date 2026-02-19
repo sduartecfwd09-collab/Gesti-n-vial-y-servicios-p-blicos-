@@ -1,5 +1,7 @@
 import { postServicios } from "../services/serviceServicios.js"
 import { getServicios } from "../services/serviceServicios.js"
+import { deleteServicios } from "../services/serviceServicios.js"
+import { updatePatchServicios } from "../services/serviceServicios.js"
 
 let tipoServicio = document.getElementById("tipoServicio");
 let descripcionServicioPublico = document.getElementById("descripcionServicioPublico");
@@ -16,7 +18,7 @@ const navCerrar = document.getElementById("navCerrar"); /* nav dinamicos para va
 const navRol = document.getElementById("navRol");
 
 
-mostrarServicios();
+mostrarSercivios();
 
 btnServicioPublica.addEventListener("click", async () => {
     if (tipoServicio.value.trim() == "" || descripcionServicioPublico.value.trim() == "" || /* encargadoServicioPublico.value.trim() == "" */ /* || */ ubicacionServicio.value.trim() == "" || direccionDelServicio.value.trim() == "") {
@@ -38,7 +40,7 @@ btnServicioPublica.addEventListener("click", async () => {
         }
         await postServicios(servicios);
 
-        mostrarServicios();/* para que una vez se guarden los datos, se vuelva a ejecutar la funcion get(de abajo), permitiendo que se actualice al instante la tabla, una vez se da click */
+        mostrarSercivios();/* para que una vez se guarden los datos, se vuelva a ejecutar la funcion get(de abajo), permitiendo que se actualice al instante la tabla, una vez se da click */
 
 
         Swal.fire({
@@ -48,25 +50,25 @@ btnServicioPublica.addEventListener("click", async () => {
         });
 
 
-        tipoServicio.value.trim() = "";
-        descripcionServicioPublico.value.trim() = "";
-        ubicacionServicio.value.trim() = "";
-        direccionDelServicio.value.trim() = "";
+        tipoServicio.value = "";
+        descripcionServicioPublico.value = "";
+        ubicacionServicio.value = "";
+        direccionDelServicio.value = "";
     }
 })
 
-async function mostrarServicios() {
+async function mostrarSercivios() {
     let servicio = await getServicios();
 
-    contendor.textContent = ""; // limpiar tabla
+    contendorServicios.textContent = ""; // limpiar tabla
 
     for (let i = 0; i < servicio.length; i++) {
-        const reportesEnviados = servicio[i];
-        if (reportesEnviados.usuario === usuarioActivo.id) { /* para que la lista aparezca solo cuando el id del usuario activo que esta en el localstorage, el cual fue llamado con un get y parse, arriba de este js coincida.
+        const serviciosEnviados = servicio[i];
+        if (serviciosEnviados.adminID === usuarioActivo.id) { /* para que la lista aparezca solo cuando el id del usuario activo que esta en el localstorage, el cual fue llamado con un get y parse, arriba de este js coincida.
             Basicamente lo que hace es de la constante reporte deseada, que esta recorriendo los elementos del dbjson para leerlo, busca alguna informacion que contenga el id del usuario y eso se hizo, con el post de arriba, que al hacer el objeto, le añadimos el id del usuario activo, por lo tanto al enviar, en el db tambien se guarda ese id*/
 
             /* regla para un div vacio, create element, luego textContent, por ultimo appendChild*/
-             const trServicios = document.createElement("tr"); /* determinar que tipo de elemento tendra cada elemento del contenedor si tr o td */
+            const trServicios = document.createElement("tr"); /* determinar que tipo de elemento tendra cada elemento del contenedor si tr o td */
 
             const tdIdVial = document.createElement("td");
             const tdtipoServicio = document.createElement("td");
@@ -74,26 +76,75 @@ async function mostrarServicios() {
             const tdencargadoServicioPublico = document.createElement("td");
             const tdubicacionServicio = document.createElement("td");
             const tddireccionDelServicio = document.createElement("td");
-            const tdadminID = document.createElement("td");
-            const tdEstadoProyecto = document.createElement("td");
+            const tdEstadoServicio = document.createElement("td");
+            const tdbotones = document.createElement("td");
 
-            tdIdVial.textContent = proyectossEnviados.id;
-            tdtipoServicio.textContent = proyectossEnviados.tipoServicio;
-            tddescripcionServicioPublico.textContent = proyectossEnviados.descripcionServicioPublico; /* el contenido de esos td será lo encontrado en dbjson en la lista productos */
-            tdencargadoServicioPublico.textContent = proyectossEnviados.encargadoServicioPublico;
-            tdubicacionServicio.textContent = proyectossEnviados.ubicacionServicio;
-            tddireccionDelServicio.textContent = proyectossEnviados.direccionDelServicio;
-            tdadminID.textContent = proyectossEnviados.adminID;
-            tdEstadoProyecto.textContent = proyectossEnviados.EstadoServicio;
+            tdIdVial.textContent = serviciosEnviados.id;
+            tdtipoServicio.textContent = serviciosEnviados.tipoServicio;
+            tddescripcionServicioPublico.textContent = serviciosEnviados.descripcionServicioPublico; /* el contenido de esos td será lo encontrado en dbjson en la lista productos */
+            tdencargadoServicioPublico.textContent = serviciosEnviados.encargadoServicioPublico;
+            tdubicacionServicio.textContent = serviciosEnviados.ubicacionServicio;
+            tddireccionDelServicio.textContent = serviciosEnviados.direccionDelServicio;
+            tdEstadoServicio.textContent = serviciosEnviados.EstadoServicio;
+
+
+            const btnPendienteServicio = document.createElement("button");
+            const btnProcesoServicio = document.createElement("button");
+            const btnResueltoServicio = document.createElement("button");;
+            const btnEliminarServicio = document.createElement("button");;
+
+
+            btnPendienteServicio.textContent = "Pendiente";/* los valores de cada boton */
+            btnProcesoServicio.textContent = "En Proceso";
+            btnResueltoServicio.textContent = "Resuelto";
+            btnEliminarServicio.textContent = "Eliminar Servicio ";
+
+
+            btnPendienteServicio.addEventListener("click", async function () {
+                await updatePatchServicios(serviciosEnviados.id, { EstadoServicio: "Pendiente" });
+                mostrarSercivios(); /* muestreme el cambio de inmediato despues de actualizar*/
+            });
+
+            btnProcesoServicio.addEventListener("click", async function () {
+                await updatePatchServicios(serviciosEnviados.id, { EstadoServicio: "En Proceso" });
+                mostrarSercivios(); /* muestreme el cambio de inmediato despues de actualizar*/
+            });
+
+            btnResueltoServicio.addEventListener("click", async function () {
+                await updatePatchServicios(serviciosEnviados.id, { EstadoServicio: "Resuelto" });
+                mostrarSercivios(); /* muestreme el cambio de inmediato despues de actualizar*/
+            });
+
+            btnEliminarServicio.addEventListener("click", async function () {
+                const resultado = await Swal.fire({
+                    title: "¿Seguro que quieres eliminar este proyecto?",
+                    text: "Esta acción no se puede deshacer",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "Sí, eliminar",
+                    cancelButtonText: "Cancelar"
+                });
+
+                if (resultado.isConfirmed) {
+                    await deleteServicios(serviciosEnviados.id);
+                    mostrarSercivios();
+                }
+
+            });
+            tdbotones.appendChild(btnPendienteServicio);
+            tdbotones.appendChild(btnProcesoServicio);
+            tdbotones.appendChild(btnResueltoServicio);
+            tdbotones.appendChild(btnEliminarServicio);
 
             trServicios.appendChild(tdIdVial);
+            trServicios.appendChild(tdencargadoServicioPublico);
             trServicios.appendChild(tdtipoServicio);
             trServicios.appendChild(tddescripcionServicioPublico);/* item tendra hijos y los hijos serán td */
-            trServicios.appendChild(tdencargadoServicioPublico);
+
             trServicios.appendChild(tdubicacionServicio);
             trServicios.appendChild(tddireccionDelServicio);
-            trServicios.appendChild(tdadminID);
-            trServicios.appendChild(tdEstadoProyecto);
+            trServicios.appendChild(tdEstadoServicio);
+            trServicios.appendChild(tdbotones);
             contendorServicios.appendChild(trServicios)
         }
     }

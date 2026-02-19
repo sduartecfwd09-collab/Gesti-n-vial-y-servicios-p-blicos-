@@ -124,8 +124,8 @@ async function mostrarRoles() {
     });
 
     if (resultado.isConfirmed) {
-        await deleteReportes(reporte.id);
-        mostrarReportes();
+        await deleteUsuarios(rol.id);
+        mostrarRoles();
     }
 
 });
