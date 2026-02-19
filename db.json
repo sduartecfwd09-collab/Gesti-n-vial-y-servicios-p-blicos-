@@ -26,6 +26,15 @@
       "telefono": "8089678657",
       "cedula": "1233456789",
       "rol": "usuario"
+    },
+    {
+      "id": "ac7c",
+      "nombre": "Yerik Samir García Gonzalez",
+      "correo": "samir@gmail.com",
+      "contrasena": "123456",
+      "telefono": "87654321",
+      "cedula": "1234567890",
+      "rol": "usuario"
     }
   ],
   "reportes": [
