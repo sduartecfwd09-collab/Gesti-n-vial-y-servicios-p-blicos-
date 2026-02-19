@@ -33,8 +33,8 @@
      <label for="descripcionProyecto">Descripción del proyecto vial:</label><br>
      <textarea name="descripcionProyecto" id="descripcionProyecto"></textarea>
        <br><br>
-      <label for="tipoCostos">Presupuesto:</label><br>
-      <input type="number" id="tipoCostos"><br><br>
+      <label for="presupuestoDelProyecto">Presupuesto:</label><br>
+      <input type="number" id="presupuestoDelProyecto"><br><br>
       <label for="fechaInicio">Fecha de inicio:</label><br><br>
       <input type="date" id="fechaInicio" name="fechaInicio"><br><br>
 
@@ -50,17 +50,19 @@
     </select><br><br>
     
     <textarea name="direccionProyecto" id="direccionProyecto" placeholder="Dirección exacta"></textarea><br><br>
-    <button id="btnViales">Gestionar proyecto</button>
+    <button class="btnViales">Gestionar proyecto</button>
 
      <table>
       <thead>
         <tr>
+          <th>Id del proyecto:</th>
           <th>Nombre del proyecto:</th>
           <th>Descripción del proyecto:</th>
           <th>Presupuesto:</th>
           <th>Fecha de inicio:</th>
           <th>Ubicacion del proyecto:</th>
           <th>Dirección exacta:</th>
+          <th>Administrador del proyecto</th>
           <th>Estado:</th>
           <th>botones:</th>
         </tr>
