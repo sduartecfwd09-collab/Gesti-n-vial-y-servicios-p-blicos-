@@ -63,13 +63,13 @@ body {
 }
 
 .witch-img {
-    width: 200px;
+    width: 150px;
     filter: drop-shadow(0 0 10px rgba(172, 161, 161, 0.5));
 }
 
 @keyframes flyAcross {
     0% {
-        transform: translateX(20vw) translateY(0);
+        transform: translateX(2vw) translateY(0);
     }
     25% {
         transform: translateX(-40vw) translateY(-250px);
