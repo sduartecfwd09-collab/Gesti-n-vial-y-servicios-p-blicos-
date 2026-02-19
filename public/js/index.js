@@ -11,7 +11,7 @@ const navLogin = document.getElementById("navLogin");
 if (!usuarioActivo) {
 
     const link = document.createElement("a");
-link.textContent = "login";
+link.textContent = "Iniciar sesión";
         link.href = "../pages/login.html";
     
 
