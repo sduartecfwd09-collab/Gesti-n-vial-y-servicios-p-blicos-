@@ -8,6 +8,7 @@
   <title>Gestión Vial Escazú</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../styles/index.css">
 </head>
 
@@ -18,13 +19,24 @@
       <a class="navbar-brand" href="../pages/index.html">
         <img src="../img/logo escazu png.png" alt="Logo Escazú" width="400" height="300"
           class="d-inline-block align-text-top"></a>
-      
+
       <div class="estiloNav">
         <span id="navRol"></span>
         <span id="navLogin"> </span>
         <span id="navCerrar"></span>
       </div>
     </nav>
+    
+         <a href="#avisos" class="btn-info">Ver Avisos</a>
+        
+        <!-- Noticias -->
+        
+          <a href="#avisos" class="btn-info">Leer Noticias</a>
+        
+        <!-- Eventos -->
+        
+          <a href="#avisos" class="btn-info">Ver Eventos</a>
+        
 
   </header>
   <main>
@@ -37,7 +49,8 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="10000">
-          <img src="../img/Contenedores-de-reciclaje-segun-sus-colores-y-usos1-scaled.jpg" class="d-block w-100" alt="...">
+          <img src="../img/Contenedores-de-reciclaje-segun-sus-colores-y-usos1-scaled.jpg" class="d-block w-100"
+            alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>RECOLECCIÓN DE RESIDUOS</h5>
             <p>Los materiales se separan, limpian y procesan para convertirse en materia prima nueva.</p>
@@ -47,11 +60,13 @@
           <img src="../img/322581319_829408508130808_5331809080932264312_n-768x524.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>ASEO Y ORNATO</h5>
-            <p>unidad municipal encargada de gestionar la limpieza, mantenimiento y embellecimiento de los espacios públicos.</p>
+            <p>unidad municipal encargada de gestionar la limpieza, mantenimiento y embellecimiento de los espacios
+              públicos.</p>
           </div>
         </div>
         <div class="carousel-item" data-bs-interval="10">
-          <img src="../img/cesped-recien-cortado_679e2db1_2507874811_250804091304_800x600.webp" class="d-block w-100" alt="...">
+          <img src="../img/cesped-recien-cortado_679e2db1_2507874811_250804091304_800x600.webp" class="d-block w-100"
+            alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>CESPED</h5>
             <p>El césped mejora la calidad del agua.</p>
@@ -120,7 +135,7 @@
               alcantarilla obstruida).</li>
             <li><strong>Descripción del problema:</strong> explicar claramente la situación observada.</li>
             <li><strong>Ubicación:</strong> dirección, referencia o coordenadas.</li>
-            
+
           </ul>
         </li>
 
@@ -168,10 +183,48 @@
         </li>
 
       </ol>
+
     </div>
+
+    <!-- Sección Informativa: Avisos, Noticias, Eventos -->
+    <section class="seccion-informativa">
+      <h2 class="titulo-seccion">La Muni Informa</h2>
+      <div class="contenedor-grid">
+
+        <!-- Avisos -->
+         
+        <article id="avisos" class="tarjeta-info">
+          <i class="bi bi-megaphone-fill"></i>
+          <h3>Avisos</h3>
+          <p>Manténgase al tanto de los comunicados oficiales, cierres de vías y trámites urgentes de la Municipalidad.
+          </p>
+          <a href="#" class="btn-info">Ver Avisos</a>
+        </article>
+
+        <!-- Noticias -->
+        <article class="tarjeta-info">
+          <i class="bi bi-newspaper"></i>
+          <h3>Noticias</h3>
+          <p>Descubra las últimas novedades, proyectos de infraestructura y mejoras que estamos realizando en el cantón.
+          </p>
+          <a href="#" class="btn-info">Leer Noticias</a>
+        </article>
+
+        <!-- Eventos -->
+        <article class="tarjeta-info">
+          <i class="bi bi-calendar-event-fill"></i>
+          <h3>Eventos</h3>
+          <p>Participe en las actividades culturales, deportivas y ferias organizadas para toda la comunidad escazuceña.
+          </p>
+          <a href="#" class="btn-info">Ver Eventos</a>
+        </article>
+
+      </div>
+    </section>
+
   </main>
   <footer>
-
+    <a href="../pages/Lamuni.html">La Muni</a>
   </footer>
 
 
